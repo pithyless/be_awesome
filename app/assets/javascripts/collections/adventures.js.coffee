@@ -3,11 +3,11 @@ class Awesomeness.Collections.Adventures extends Backbone.Collection
   url: awesomeConfig.ws.adventuresUrl
   
   initialize: () ->
-    
-  getAdventures: ->
     @fetch
-      success: () =>
-        console.log('success')
-      error: () =>
-        console.log('error')
-        @trigger('error')
+      success: =>
+        console.log('Collections.Adventures fetch success')
+      error: =>
+        console.log('Collections.Adventures fetch error')
+    
+  toRender: ->
+    @toJSON()

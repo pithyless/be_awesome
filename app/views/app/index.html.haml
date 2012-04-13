@@ -1,5 +1,3 @@
-#adventure-box
-
 %ol.list
   %li
     %a.list_action.list_user{:href => "/", :title => "User name"} User name
@@ -10,4 +8,9 @@
         %li 5 days ago
         %li 9
 
+#adventure-box
+#adventures-list-box
+  %ul
+
 = render 'adventure_template'
+= render 'adventures_list_template'
