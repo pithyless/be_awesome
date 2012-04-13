@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'thin'
 
+gem 'bson_ext'
+gem 'mongo'
+
 gem 'haml'
 
 gem 'omniauth-facebook'
