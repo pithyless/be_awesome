@@ -3,7 +3,7 @@
     %table
       %tr
         %td
-          %a.list_action.list_user{:href => "/", :title => "User name"} User name
+          %a.list_action.list_user{:href => "/", :title => "#{current_user.name}" }= current_user.name
           %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
         %td
           %a.show_post{:href => "/", :title => "Show post"}
