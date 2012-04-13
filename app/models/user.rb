@@ -39,5 +39,6 @@ class User
       name: name,
       avatar: avatar
     })
+    self.find_by_facebook_uid(facebook_uid)
   end
 end
