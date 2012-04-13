@@ -6,7 +6,7 @@ class User
   end
 
   def self.find(id)
-    if user = collection.find({id: id}).first
+    if user = collection.find({_id: id}).first
       self.new.tap do |u|
         u.id     = user['_id']
         u.email  = user['email']
@@ -31,7 +31,7 @@ class User
     facebook_uid = auth.uid
     email = auth.info.email
     name = auth.info.name
-    avatar = auth.info.avatar
+    avatar = auth.info.image
 
     collection.insert({
       facebook_uid: facebook_uid,
