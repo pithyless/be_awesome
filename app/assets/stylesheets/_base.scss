@@ -19,11 +19,14 @@ h3 { font-size: 1.3em; }
 h4 { font-size: 1.1em; }
 
 /* links */
-a { color: $color-alt; }
+a { color: #ffffff; }
 a:visited { color: $color-alt; }
 a:hover { color: $color-alt; }
 a:focus, a:hover, a:active { outline: 0; }
 
+a {
+text-decoration: none;
+}
 ul, li, ol {
 list-style: none;
 }
@@ -35,6 +38,7 @@ header {
 	height: 40px;
 	line-height: 40px;
 	position: fixed;
+	font-weight: bold;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -68,4 +72,34 @@ nav.bottom li {
 nav.bottom a {
 	color: #ffffff;
 	text-decoration: none;
+}
+.list li {
+	float: left;
+	border-bottom: solid 1px #ffffff;
+	padding: 10px;
+	width: 100%;
+}
+.list_action {
+	float: left;
+	height: 40px;
+	margin-right: 10px;
+	width: 40px;
+	background-color: #ffffff;
+}
+.list ol {
+	clear: both;
+	font-size: 11px;
+}
+.list h2 {
+	color: #ffffff;
+}
+.list ol li {
+	border: none;
+	color: #dddddd;
+	line-height: normal;
+	margin: 0 20px 0 0;
+	padding: 0;
+}
+.show_post {
+	float: left;
 }

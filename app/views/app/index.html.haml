@@ -1,31 +1,31 @@
-%ol
+%ol.list
   %li
-    %a.user{:href => "/", :title => "User name"} User name
-    %a.add_post{:href => "/", :title => "Add post"} Add post
+    %a.list_action.list_user{:href => "/", :title => "User name"} User name
+    %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
     %a.show_post{:href => "/", :title => "Show post"}
       %h2 Post title
-      %div
-        %span 5 days ago
-        %span 9
-  %li
-    %a.user{:href => "/", :title => "User name"} User name
-    %a.add_post{:href => "/", :title => "Add post"} Add post
-    %a.show_post{:href => "/", :title => "Show post"}
-      %h2 Post title
-      %div
-        %span 5 days ago
-        %span 9
-  %li
-    %a.user{:href => "/", :title => "User name"} User name
-    %a.add_post{:href => "/", :title => "Add post"} Add post
-    %a.show_post{:href => "/", :title => "Show post"}
-      %h2 Post title
-      %div
-        %span 5 days ago
-        %span 9
+      %ol
+        %li 5 days ago
+        %li 9
 
 %nav.bottom
   %li
     %a{:href => "/"} My advantures
   %li
     %a{:href => "/"} I'm supporting
+
+%hr
+
+%h1 title
+%ol
+  %li
+    %a.list_user{:href => "/", :title => "User name"} User name
+    .post dsfgfdfgd dfgdfg dgdgdfgdgdfgdfg dgd gdfgd gdg dfgdg gdgdgdgg dg dgdgdgd gd ggdgdgdg
+  %li
+    %a.list_user{:href => "/", :title => "User name"} User name
+    .post dsfgfdfgd dfgdfg dgdgdfgdgdfgdfg dgd gdfgd gdg dfgdg gdgdgdgg dg dgdgdgd gd ggdgdgdg
+  %li
+    %a.list_user{:href => "/", :title => "User name"} User name
+    .post dsfgfdfgd dfgdfg dgdgdfgdgdfgdfg dgd gdfgd gdg dfgdg gdgdgdgg dg dgdgdgd gd ggdgdgdg
+  %li
+    %a.post{:href => "/", :title => "blaaaa"}Post
