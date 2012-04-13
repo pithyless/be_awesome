@@ -1,6 +1,13 @@
 %script#adventures-list-template{:type => "text/x-handlebars-template"}
   %li
-    %a{:href => '/#/adventures/{{id}}'}
-      .title {{title}}
-      .last-activity Last activity: {{last_activity_days}} ago
-      .active-pingers Pingers: {{active_pingers_count}}
+    %table
+      %tr
+        %td
+          %a.list_action.list_user{:href => "/", :title => "User name"} User name
+          %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
+        %td
+          %a{:href => '/#/adventures/{{id}}'}
+            %h2.title {{title}}
+            %ol
+              %li.last-activity Last activity: {{last_activity_days}} ago
+              %li.active-pingers Pingers: {{active_pingers_count}}

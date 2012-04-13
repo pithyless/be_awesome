@@ -92,7 +92,8 @@ header .head_home {
 	float: right;
 }
 #content {
-	padding-top: 40px;
+	overflow: hidden;
+	padding: 40px 0 80px;
 }
 footer {
 background: #555555; /* Old browsers */
@@ -161,7 +162,7 @@ padding: 10px;
 }
 .list ol {
 	clear: both;
-	font-size: 11px;
+	font-size: 12px;
 }
 .list h2 {
 	color: #ffffff;
@@ -174,7 +175,7 @@ width: 40px;
 }
 .list ol li {
 	border: none;
-	color: #dddddd;
+	color: #dedede;
 	line-height: normal;
 	margin: 0 20px 0 0;
 	padding: 0;
@@ -183,4 +184,42 @@ width: 40px;
 .show_post {
 	float: left;
 	width: 100%;
+}
+.list small {
+  font-size: 12px;
+}
+.list small strong {
+font-weight: bold;
+}
+h1 {
+	padding: 10px;
+	color: #ffffff;
+	text-align: center;
+}
+.list_posts li {
+  border-bottom: none;
+}
+.list_posts .post {
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 6px 10px;
+}
+.button div {
+  overflow: hidden;
+  padding: 10px 80px;
+}
+.list_posts .button a {
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  border: solid 1px #ffffff;
+  padding: 6px 0;
+  background-color: #7DBD00;
 }
