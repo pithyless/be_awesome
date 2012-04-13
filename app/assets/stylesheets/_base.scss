@@ -1,8 +1,9 @@
 body {
+	background: url(bg.gif) repeat left top #3cbce1;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
-  color: $color-text;
+  color: #ffffff;
 }
 
 /* headers */
@@ -23,3 +24,48 @@ a:visited { color: $color-alt; }
 a:hover { color: $color-alt; }
 a:focus, a:hover, a:active { outline: 0; }
 
+ul, li, ol {
+list-style: none;
+}
+body {
+position: relative;
+}
+header {
+	background-color: black;
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+header a {
+	float: left;
+	margin: 0 15px;
+}
+header .head_home {
+	float: right;
+}
+#content {
+	padding-top: 40px;
+}
+nav.bottom {
+	background: black;
+	line-height: 40px;
+	height: 40px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+nav.bottom li {
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	width: 50%;
+}
+nav.bottom a {
+	color: #ffffff;
+	text-decoration: none;
+}

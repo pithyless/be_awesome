@@ -26,13 +26,12 @@
 
     #wrapper
       %header
-        header
+        %a.head_btn.head_cancel{:href => "javascript:history.back()", :title => "Cancel"} Cancel
+        Be Awesome
+        %a.head_btn.head_home{:href => "#", :title => "Home"} Home
 
       #content
         = yield
-
-      %footer
-        footer
 
     = yield :scripts
     = render "layouts/config_js"
