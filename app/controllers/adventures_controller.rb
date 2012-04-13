@@ -8,12 +8,14 @@ class AdventuresController < ApplicationController
         status: 'active',
         active_pingers_count: 3,
         last_activity_days: 0,
+        id: 1
       },
       {
         title: 'My Second Adventure',
         status: 'active',
         active_pingers_count: 0,
         last_activity_days: 9,
+        id: 2
       },
     ]
 

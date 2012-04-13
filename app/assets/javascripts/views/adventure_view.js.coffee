@@ -12,3 +12,6 @@ class Awesomeness.Views.AdventureView extends Backbone.View
     console.log('render adventure view', data)
     html = @template(data)
     @$el.html(html)
+
+  clear: ->
+    @$el.html('')
