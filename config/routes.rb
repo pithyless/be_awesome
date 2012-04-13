@@ -6,6 +6,7 @@ BeAwesome::Application.routes.draw do
   get '/adventures/:id' => 'adventures#show'
 
   get '/auth/facebook/callback' => 'sessions#create'
+  # TODO: /auth/failure
 
 
 
