@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
   def check_sign_in
     unless current_user
-    redirect_to '/auth/facebook'
+      redirect_to '/auth/facebook'
+    end
   end
 
   def current_user

@@ -1,13 +1,12 @@
 %ol.list
   %li
-    - if current_user
-      %a.list_action.list_user{:href => "/", :title => "#{current_user.name}"}= current_user.name
-      %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
-      %a.show_post{:href => "/", :title => "Show post"}
-        %h2 Post title
-        %ol
-          %li 5 days ago
-          %li 9
+    %a.list_action.list_user{:href => "/", :title => "#{current_user.name}"}= current_user.name
+    %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
+    %a.show_post{:href => "/", :title => "Show post"}
+      %h2 Post title
+      %ol
+        %li 5 days ago
+        %li 9
 
 %nav.bottom
   %li
