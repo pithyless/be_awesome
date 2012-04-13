@@ -1,0 +1,23 @@
+$max-page-width: 480px;
+
+.wrapper {
+  width: $max-page-width;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+#content {
+  margin: 0 10px;
+}
+
+
+
+
