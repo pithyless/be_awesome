@@ -1,0 +1,6 @@
+%script#adventures-list-template{:type => "text/x-handlebars-template"}
+  %li
+    %a{:href => '/#/adventures/{{id}}'}
+      .title {{title}}
+      .last-activity Last activity: {{last_activity_days}} ago
+      .active-pingers Pingers: {{active_pingers_count}}

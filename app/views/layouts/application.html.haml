@@ -28,10 +28,16 @@
       %header
         %a.head_btn.head_cancel{:href => "javascript:history.back()", :title => "Cancel"} Cancel
         Be Awesome
-        %a.head_btn.head_home{:href => "#", :title => "Home"} Home
+        %a.head_btn.head_home{:href => "#", :title => "Settings"} Settings
 
       #content
         = yield
+
+      %footer
+        %li
+          %a{:href => "/#/adventures"} My advantures
+        %li
+          %a{:href => "/"} I'm supporting
 
     = yield :scripts
     = render "layouts/config_js"

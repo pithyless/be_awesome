@@ -1,6 +1,7 @@
 :javascript
   window.awesomeConfig = {
     ws: {
-      getAdventuresUrl: "/"
+      adventuresUrl: "#{url_for(controller: 'adventures', action: 'index')}",
+      adventureUrlRoot: "#{url_for(controller: 'adventures', action: 'index')}"
     }
   };
