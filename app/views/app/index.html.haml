@@ -1,12 +1,16 @@
 %ol.list
   %li
-    %a.list_action.list_user{:href => "/", :title => "User name"} User name
-    %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
-    %a.show_post{:href => "/", :title => "Show post"}
-      %h2 Post title
-      %ol
-        %li 5 days ago
-        %li 9
+    %table
+      %tr
+        %td
+          %a.list_action.list_user{:href => "/", :title => "User name"} User name
+          %a.list_action.list_add{:href => "/", :title => "Add post"} Add post
+        %td
+          %a.show_post{:href => "/", :title => "Show post"}
+            %h2 Post title
+            %ol
+              %li 5 days ago
+              %li 9
 
 #adventure-box
 #adventures-list-box
