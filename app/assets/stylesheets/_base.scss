@@ -1,8 +1,9 @@
 body {
+	background: url(bg.gif) repeat left top #3cbce1;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
-  color: $color-text;
+  color: #ffffff;
 }
 
 /* headers */
@@ -23,3 +24,16 @@ a:visited { color: $color-alt; }
 a:hover { color: $color-alt; }
 a:focus, a:hover, a:active { outline: 0; }
 
+header {
+	background-color: black;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	text-align: center;
+}
+header a {
+	float: left;
+}
+header .head_home {
+	float: right;
+}
