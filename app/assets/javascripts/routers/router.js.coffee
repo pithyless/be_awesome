@@ -1,6 +1,6 @@
 class Awesomeness.Routers.AwesomeRouter extends Backbone.Router
 
-  routes: 
+  routes:
     "/adventures": "getAdventuresList"
     "/adventures/new": "newAdventure"
     "/adventures/:id": "getAdventure"
