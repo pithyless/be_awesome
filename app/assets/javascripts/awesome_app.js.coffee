@@ -28,6 +28,9 @@ class AwesomeApp
 
   onGetAdventure: (id) ->
     console.log("adventure no", id)
-    adventure = new Awesomeness.Models.Adventure({id: id})
-    adventureToRender = adventure.toRender()
+    @adventureModel = new Awesomeness.Models.Adventure({id: id})
+    @adventureModel.bind('change', @onAdventureReady, @)
+    
+  onAdventureReady: ->
+    adventureToRender = @adventureModel.toRender()
     @adventureView.render(adventureToRender)
