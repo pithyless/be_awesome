@@ -6,7 +6,7 @@ class User
   end
 
   def self.find(id)
-    if user = collection.find({id: uid}).first
+    if user = collection.find({id: id}).first
       self.new.tap do |u|
         u.id     = user['_id']
         u.email  = user['email']
