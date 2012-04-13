@@ -5,13 +5,15 @@ class AwesomeApp
   constructor: ->
     @router = new Awesomeness.Routers.AwesomeRouter()
     Backbone.history.start()
+    @bindRouterEvents()
+
+    # init collections
+    @adventuresCollection = new Awesomeness.Collections.Adventures()
 
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
 
-    @bindEvents()
-
-  bindEvents: ->
+  bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
     @router.bind('getAdventuresList', @onGetAdventuresList, @)
     @router.bind('getAdventure', @onGetAdventure, @)
@@ -20,7 +22,8 @@ class AwesomeApp
     console.log("new adventure")
 
   onGetAdventuresList: ->
-    @adventuresListView.render()
+    adventures = @adventuresCollection.getAdventures()
+    @adventuresListView.render(adventures)
 
   onGetAdventure: (id) ->
     console.log("adventure no", id)
