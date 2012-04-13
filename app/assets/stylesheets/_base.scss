@@ -1,0 +1,25 @@
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color-text;
+}
+
+/* headers */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 1.2em;
+  color: $color-text;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.1em; }
+
+/* links */
+a { color: $color-alt; }
+a:visited { color: $color-alt; }
+a:hover { color: $color-alt; }
+a:focus, a:hover, a:active { outline: 0; }
+

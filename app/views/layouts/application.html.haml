@@ -24,15 +24,15 @@
     
   %body{:class => controller.controller_name}
 
-    %header
-      header
+    #wrapper
+      %header
+        header
 
-    #content
-      .wrapper
+      #content
         = yield
 
-    %footer
-      footer
+      %footer
+        footer
 
     = yield :scripts
     = render "layouts/config_js"
