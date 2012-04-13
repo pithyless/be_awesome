@@ -1,6 +1,25 @@
 # encoding: utf-8
 class AdventuresController < ApplicationController
 
+  def index
+    adventures = [
+      {
+        title: 'My First Bicycle Ride',
+        status: 'active',
+        active_pingers_count: 3,
+        last_activity_days: 0,
+      },
+      {
+        title: 'My Second Adventure',
+        status: 'active',
+        active_pingers_count: 0,
+        last_activity_days: 9,
+      },
+    ]
+
+    render :json => adventures.to_json
+  end
+
   def show
     avatar = 'https://en.gravatar.com/userimage/11590901/c59c95d70942a008aa92adc5ed3c7637.jpg?size=50'
 

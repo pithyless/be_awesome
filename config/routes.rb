@@ -2,7 +2,10 @@ BeAwesome::Application.routes.draw do
 
   root :to => 'app#index'
 
-  get '/adventure/:id' => 'adventures#show'
+  get '/adventures' => 'adventures#index'
+  get '/adventures/:id' => 'adventures#show'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
