@@ -1,6 +1,6 @@
 class Awesomeness.Collections.Adventures extends Backbone.Collection
-  model: Awesomeness.Models.Adventure
-  url: awesomeConfig.ws.getAdventuresUrl
+  model: Awesomeness.Models.AdventureShort
+  url: awesomeConfig.ws.adventuresUrl
   
   initialize: () ->
     

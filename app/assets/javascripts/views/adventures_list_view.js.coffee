@@ -1,6 +1,6 @@
 class Awesomeness.Views.AdventuresListView extends Backbone.View
   initialize: () ->
-    console.log('list view')
+    console.log('list view init')
     
-  render: () ->
+  render: (data) ->
     console.log('render list view')

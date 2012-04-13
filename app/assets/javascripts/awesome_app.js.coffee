@@ -12,6 +12,7 @@ class AwesomeApp
 
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
+    @adventureView = new Awesomeness.Views.AdventureView()
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
@@ -22,8 +23,11 @@ class AwesomeApp
     console.log("new adventure")
 
   onGetAdventuresList: ->
-    adventures = @adventuresCollection.getAdventures()
-    @adventuresListView.render(adventures)
+    adventuresToRender = @adventuresCollection.toRender()
+    @adventuresListView.render(adventuresToRender)
 
   onGetAdventure: (id) ->
     console.log("adventure no", id)
+    adventure = new Awesomeness.Models.Adventure({id: id})
+    adventureToRender = adventure.toRender()
+    @adventureView.render(adventureToRender)
