@@ -1,5 +1,5 @@
 class User
-  attr_accessor :email, :name, :avatar
+  attr_accessor :id, :email, :name, :avatar
 
   def self.collection
     DB.collection('users')
