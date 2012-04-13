@@ -4,8 +4,7 @@ $ ->
 class AwesomeApp
   constructor: ->
     @router = new Awesomeness.Routers.AwesomeRouter()
-    Backbone.history.start
-      root: "/adventures"
+    Backbone.history.start()
 
     @bindRouterEvents()
 

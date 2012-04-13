@@ -5,6 +5,10 @@ BeAwesome::Application.routes.draw do
   get '/adventures' => 'adventures#index'
   get '/adventures/:id' => 'adventures#show'
 
+  get '/auth/facebook/callback' => 'sessions#create'
+  # TODO: /auth/failure
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
