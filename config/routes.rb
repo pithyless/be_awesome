@@ -6,6 +6,8 @@ BeAwesome::Application.routes.draw do
   get '/adventures/:id' => 'adventures#show'
 
 
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
