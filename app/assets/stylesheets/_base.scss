@@ -54,7 +54,7 @@ header .head_home {
 #content {
 	padding-top: 40px;
 }
-nav.bottom {
+footer {
 	background: black;
 	line-height: 40px;
 	height: 40px;
@@ -63,13 +63,13 @@ nav.bottom {
 	left: 0;
 	width: 100%;
 }
-nav.bottom li {
+footer li {
 	float: left;
 	font-weight: bold;
 	text-align: center;
 	width: 50%;
 }
-nav.bottom a {
+footer a {
 	color: #ffffff;
 	text-decoration: none;
 }
