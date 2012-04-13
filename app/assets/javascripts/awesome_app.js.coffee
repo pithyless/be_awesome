@@ -27,7 +27,6 @@ class AwesomeApp
 
   onAdventuresCollectionReady: ->
     @clearAllViews()
-    console.log('collection ready')
     adventuresToRender = @adventuresCollection.toRender()
     @adventuresListView.render(adventuresToRender)
 

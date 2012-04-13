@@ -9,7 +9,6 @@ class Awesomeness.Views.AdventureView extends Backbone.View
     @template = Handlebars.compile(source)
     
   render: (data) ->
-    console.log('render adventure view', data)
     html = @template(data)
     @$el.html(html)
 

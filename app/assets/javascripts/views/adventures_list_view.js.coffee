@@ -9,12 +9,9 @@ class Awesomeness.Views.AdventuresListView extends Backbone.View
     @template = Handlebars.compile(source)
     
   render: (data) ->
-    
     html = ''
     _.each data, (element) =>
       html += @template( element )
-
-    console.log('render adventures list', data, html, @el, @$el)
 
     @$el.find('ul').html(html)
 

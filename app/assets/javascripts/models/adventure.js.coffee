@@ -9,5 +9,4 @@ class Awesomeness.Models.Adventure extends Backbone.Model
         console.log('Models.Adventure fetch error', @id)
 
   toRender: ->
-    console.log('attributes', @attributes, JSON.stringify(@attributes), @toJSON())
     @toJSON()
