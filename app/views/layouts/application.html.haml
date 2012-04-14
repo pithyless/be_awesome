@@ -16,6 +16,14 @@
     :javascript
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'') + ' js';
 
+    / %link{:rel => 'shortcut icon', :href => 'favicon.ico'}
+    / // For iPhone 4 with high-resolution Retina display
+    / %link{:rel => 'apple-touch-icon', :sizes => '114x114', :href => 'favicon114.ico'}
+    / // For first-generation iPad
+    / %link{:rel => 'apple-touch-icon', :sizes => '72x72', :href => 'favicon72.ico'}
+    / // For non-Retina iPhone, iPod Touch, and Android 2.1+ devices
+    / %link{:rel => 'apple-touch-icon', :href => 'favicon57.ico'}
+
     = stylesheet_link_tag 'application', :media => 'all'
     = csrf_meta_tags
     /[if lt IE 9]
