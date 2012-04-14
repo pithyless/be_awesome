@@ -16,12 +16,16 @@ class AwesomeApp
     @router.bind('newAdventure', @onNewAdventure, @)
     @router.bind('getAdventuresList', @onGetAdventuresList, @)
     @router.bind('getAdventure', @onGetAdventure, @)
+    console.log('init')
+
 
   onNewAdventure: ->
     console.log("new adventure")
 
   onGetAdventuresList: ->
     @adventuresCollection = new Awesomeness.Collections.Adventures()
+    console.log('init2')
+
     @adventuresCollection.bind('reset', @onAdventuresCollectionReady, @)
 
   onAdventuresCollectionReady: ->
