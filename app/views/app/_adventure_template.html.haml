@@ -16,6 +16,10 @@
                 said:
             .post {{body}}
     {{/each}}
-    %li.button
-      %div
-        %a.post{:href => "/", :title => "blaaaa"}Post
+
+  %form#addNewPostForm
+    %h2 New Post
+    %div
+      %textarea{:name => 'new_post'}
+    %div
+      %a.button{:href => "#"} Add Post
