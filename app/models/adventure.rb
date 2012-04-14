@@ -8,6 +8,19 @@ class Adventure
     @author = User.find(self.author_id)
   end
 
+  def new_supporters_invite_url
+    url = ['http://www.facebook.com/dialog/apprequests?app_id=',
+           ENV['FACEBOOK_KEY'],
+           '&message=',
+           "Please support my latest project: #{title}",
+           '&title=',
+           "Please help me with my latest project!",
+           '&redirect_uri=',
+           "http://be-awesome.herokuapp.com/adventures/add_supporters_callback/#{id.to_s}"].join('')
+
+    URI::encode(url)
+  end
+
   def last_activity
     return @last_activity unless @last_activity.nil?
     last_post = Post.find_all(post_ids, post_type: 'author').last

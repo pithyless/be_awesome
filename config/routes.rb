@@ -14,10 +14,6 @@ BeAwesome::Application.routes.draw do
 
   get '/my/friends' => 'sessions#friends'
 
-  # http://www.facebook.com/dialog/apprequests?app_id=119477631518475&message=Facebook%20Dialogs%20are%20so%20easy!&title=HelpMeWithX&redirect_uri=http://be-awesome.herokuapp.com/adventures/add_supporters_callback/4f89443adcd95104b8000006
-
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
