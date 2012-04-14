@@ -8,13 +8,14 @@ BeAwesome::Application.routes.draw do
 
   post '/adventures/new_post' => 'adventures#create_post'
   post '/adventures' => 'adventures#create'
+  post '/adventures/ping' => 'adventures#ping'
 
   get '/adventures/add_supporters_callback/:adventure_id' => 'adventures#add_supporters_callback'
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-
   get '/supportings' => 'adventures#supportings'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
