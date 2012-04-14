@@ -2,7 +2,7 @@
   %h1 {{title}}
   %ol.list.list_posts
     {{#each posts}}
-    %li
+    %li{:class => '{{type}}'}
       %table
         %tr
           %td
