@@ -18,6 +18,7 @@ class AwesomeApp
     @supportersView = new Awesomeness.Views.SupportersView()
     @dashboardView = new Awesomeness.Views.DashboardView()
     @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
+    @headerView = new Awesomeness.Views.HeaderView()
 
   checkDefaultRoute: (historyStatus) ->
     unless historyStatus

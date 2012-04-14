@@ -5,9 +5,15 @@ header {
   line-height: 50px;
   font-weight: bold;
   text-align: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 #content {
+  padding-top: 50px;
   overflow: hidden;
 }
 
