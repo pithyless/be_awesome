@@ -8,9 +8,9 @@ BeAwesome::Application.routes.draw do
   post '/adventures/new_post' => 'adventures#create_post'
   post '/adventures' => 'adventures#create'
 
-  get '/adventures/add_supporters_callback' => 'adventures#add_supporters_callback'
+  get '/adventures/add_supporters_callback/:adventure_id' => 'adventures#add_supporters_callback'
 
-  get '/auth/facebook/callback/:adventure_id' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#create'
 
   get '/my/friends' => 'sessions#friends'
 
