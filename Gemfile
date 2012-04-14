@@ -7,6 +7,7 @@ gem 'bson_ext'
 gem 'mongo'
 
 gem 'haml'
+gem 'rest-client'
 
 gem 'omniauth-facebook'
 

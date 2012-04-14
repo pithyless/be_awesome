@@ -16,7 +16,7 @@ class AdventuresController < ApplicationController
     }
     adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
     post = AuthorPost.create(current_user, adv, data)
-    render :json => { status: 'OK' }
+    render :json => { status: 'OK', adventure_id: adv.id.to_s }
   end
 
   def index

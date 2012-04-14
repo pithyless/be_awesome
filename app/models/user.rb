@@ -1,8 +1,14 @@
 class User
-  attr_accessor :id, :email, :name, :avatar
+  attr_accessor :id, :email, :name, :avatar, :facebook_access_token
 
   def adventures
     @adventures ||= Adventure.find_all_by_author(self)
+  end
+
+  def facebook_friends
+    return @facebook_friends unless @facebook_friends.nil?
+    response = RestClient.get "https://graph.facebook.com/me/friends?access_token=#{facebook_access_token}", {:accept => :json}
+    @facebook_friends = response.body
   end
 
 
@@ -23,6 +29,12 @@ class User
     end
   end
 
+  def self.login_via_facebook(auth)
+    user = User.find_by_facebook_uid(auth["uid"]) || User.create_with_facebook(auth)
+    collection.update({'_id' => user.id}, {"$set" => { 'facebook_access_token' => auth.credentials.token, 'facebook_expires_at' => auth.credentials.expires_at }})
+    user
+  end
+
   def self.find_by_facebook_uid(uid)
     if user = collection.find({'facebook_uid' => uid}).first
       self.from_mongo(user)
@@ -41,6 +53,7 @@ class User
       u.email  = data['email']
       u.name   = data['name']
       u.avatar = data['avatar']
+      u.facebook_access_token = data['facebook_access_token']
     end
   end
 
