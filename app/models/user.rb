@@ -7,8 +7,7 @@ class User
 
   def facebook_friends
     return @facebook_friends unless @facebook_friends.nil?
-    token = current_user.facebook_access_token
-    response = RestClient.get "https://graph.facebook.com/me/friends?access_token=#{token}", {:accept => :json}
+    response = RestClient.get "https://graph.facebook.com/me/friends?access_token=#{facebook_access_token}", {:accept => :json}
     @facebook_friends = response.body
   end
 
