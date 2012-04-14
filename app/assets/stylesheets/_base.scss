@@ -88,9 +88,11 @@ background: linear-gradient(top,  #000000 0%,#555555 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#555555',GradientType=0 ); /* IE6-8 */
 
 }
-header .head_home {
+
+#menu-button {
 	float: right;
 }
+
 #content {
 	overflow: hidden;
 	padding: 50px 0 80px;
@@ -147,9 +149,7 @@ background: linear-gradient(top,  #000000 0%,#555555 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#555555',GradientType=0 ); /* IE6-8 */
 }
 .list li {
-	float: left;
 	border-bottom: solid 1px #ffffff;
-	width: 100%;
 }
 .list table td {
 padding: 10px;
@@ -260,4 +260,8 @@ width: 80%;
 	-moz-box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.6);
 	box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.6);
 
+}
+
+.supporters-info {
+  text-align: center;
 }

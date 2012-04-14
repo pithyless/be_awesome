@@ -4,6 +4,7 @@ class Awesomeness.Routers.AwesomeRouter extends Backbone.Router
     "adventures": "getAdventuresList"
     "adventures/new": "newAdventure"
     "adventures/:id": "getAdventure"
+    "adventures/:id/supporters": "getSupporters"
 
   newAdventure: ->
     @trigger('newAdventure')
@@ -13,4 +14,7 @@ class Awesomeness.Routers.AwesomeRouter extends Backbone.Router
 
   getAdventure: (id) ->
     @trigger('getAdventure', id)
+
+  getSupporters: (id) ->
+    @trigger('getSupporters', id)
   

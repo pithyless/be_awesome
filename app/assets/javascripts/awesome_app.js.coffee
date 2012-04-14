@@ -28,6 +28,7 @@ class AwesomeApp
     @router.bind('newAdventure', @onNewAdventure, @)
     @router.bind('getAdventuresList', @onGetAdventuresList, @)
     @router.bind('getAdventure', @onGetAdventure, @)
+    @router.bind('getSupporters', @onGetSupporters, @)
 
   onNewAdventure: ->
     @clearAllViews()
@@ -66,3 +67,19 @@ class AwesomeApp
     @adventuresListView.clear()
     @newAdventureView.clear()
     @homePageView.clear()
+
+  # initMenu: ->
+  #   $('#menu-button').on 'click', (e) ->
+  #     e.preventDefault()
+
+  #     el = $(e.target).attr('href')
+  #     destination = $(el).offset().top - 20
+  #     $("html:not(:animated), body:not(:animated)").animate
+  #       scrollTop:
+  #         destination
+  #       'normal'
+
+  onGetSupporters: (id) ->
+    @clearAllViews()
+    supportersView = new Awesomeness.Views.SupportersView()
+    supportersView.render()
