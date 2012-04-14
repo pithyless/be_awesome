@@ -1,10 +1,7 @@
-class Awesomeness.Views.AddNewPostFormView extends Backbone.View
-  el: '#add-new-post-form'
-  elErrorMsg: '#add-new-post-form-error-msg'
-
-  initialize: ->
+class Awesomeness.Views.FormView extends Backbone.View
+  
+  initialize: (@el, @elErrorMsg) ->
     @initSendEvent()
-    console.log('form inited')
 
   initSendEvent: ->
     @$el.find('.button').on 'click', (e) =>
@@ -14,8 +11,16 @@ class Awesomeness.Views.AddNewPostFormView extends Backbone.View
         @send(dataToSend)
 
   validate: ->
-    val = @$el.find('textarea').val()
-    if val.length > 0
+    valid = true
+    $inputs = @$el.find('[name]')
+    
+    $inputs.each (index, item) ->
+      val = $(item).val()
+
+      unless val.length > 0
+        valid = false
+
+    if valid
       $(@elErrorMsg).hide()
       return true
     else
