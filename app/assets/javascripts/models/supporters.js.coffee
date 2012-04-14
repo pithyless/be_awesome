@@ -5,7 +5,6 @@ class Awesomeness.Models.Supporters extends Backbone.Model
     @fetch
       success: =>
         console.log('Models.Supporters fetch success')
-        console.log('attributes', @attributes)
       error: =>
         console.log('Models.Supporters fetch error')
     

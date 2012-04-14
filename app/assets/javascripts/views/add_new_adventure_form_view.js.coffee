@@ -13,7 +13,6 @@ class Awesomeness.Views.AddNewAdventureFormView extends Awesomeness.Views.FormVi
       type: 'POST'
       data: dataToSend
       success: (data) =>
-        console.log('ajax success', data)
         if data.status == 'OK'
           @onSuccess(data.adventure_id)
       error: (msg) ->

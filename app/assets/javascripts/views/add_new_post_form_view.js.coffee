@@ -13,7 +13,6 @@ class Awesomeness.Views.AddNewPostFormView extends Awesomeness.Views.FormView
       type: 'POST'
       data: dataToSend
       success: (data) =>
-        console.log('ajax success', data)
         if data.status == 'OK'
           @onSuccess()
       error: (msg) ->
