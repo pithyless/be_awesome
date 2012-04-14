@@ -68,7 +68,7 @@ class AdventuresController < ApplicationController
   end
 
   def add_supporters_callback
-    adv = Adventure.find_by_author(current_user, params.fetch(:data))
+    adv = Adventure.find_by_author(current_user, params.fetch(:adventure_id))
     facebook_friend_ids = params.fetch(:to)
 
     facebook_friend_ids.each do |facebook_friend_id|
