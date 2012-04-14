@@ -1,7 +1,19 @@
+header {
+  @include background-image(linear-gradient(#555 0%, #000 100%)); 
 
-#wrapper {
-  max-width: 100%;
-  margin: 0 auto;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#content {
+  overflow: hidden;
+  padding: 50px 0 0;
 }
 
 #menu {

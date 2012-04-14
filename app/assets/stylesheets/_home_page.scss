@@ -1,0 +1,24 @@
+#home-page-box {
+  background: url(ba.png) no-repeat left top #333333;
+  position: relative;
+  width: 100%;
+  
+  img {
+    width: 100%;
+  }
+  
+  .button_wrap {
+    position: absolute;
+    top: 23%;
+    left: 10%;
+    width: 80%;
+  }
+
+  .button {
+    font-size: 30px;
+    line-height: auto;
+    height: auto;
+    padding: 15px 0;
+    @include box-shadow(0px 5px 15px rgba(0,0,0,.7));
+  }
+}
