@@ -22,7 +22,12 @@ class AdventuresController < ApplicationController
       ]
     end
 
-    render :json => supporters.to_json
+    data = {
+      title: adv.title,
+      supporters: supporters
+    }
+
+    render :json => data.to_json
    end
 
   def create
