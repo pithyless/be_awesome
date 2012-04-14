@@ -5,8 +5,10 @@ class AwesomeApp
   constructor: ->
 
     @router = new Awesomeness.Routers.AwesomeRouter()
-    Backbone.history.start({pushState: false})
+    
+    historyStatus = Backbone.history.start({pushState: false})
 
+    @checkDefaultRoute(historyStatus)
     @bindRouterEvents()
 
     # init views
@@ -14,6 +16,13 @@ class AwesomeApp
     @adventureView = new Awesomeness.Views.AdventureView()
     @newAdventureView = new Awesomeness.Views.NewAdventureView()
     @homePageView = new Awesomeness.Views.HomePageView()
+
+  checkDefaultRoute: (historyStatus) ->
+    # console.log('window.location.hash', window.location.hash, window.location.hash.length, historyStatus)
+    if historyStatus
+      @router.navigate(window.location.hash, {trigger: true})
+    else
+      window.location.hash = ''
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
