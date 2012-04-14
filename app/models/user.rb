@@ -11,7 +11,6 @@ class User
     @facebook_friends = response.body
   end
 
-
   def self.collection
     DB.collection('users')
   end
@@ -69,6 +68,13 @@ class User
       name: name,
       avatar: avatar
     })
-    self.find_by_facebook_uid(facebook_uid)
+    self.find_by_facebook_uid(facebook_uid).tap do |user|
+      # Poor man's Triggers
+      Adventure.collection.update({"facebook_supporter_ids" => facebook_uid},
+                                  {"$pull" => { 'facebook_supporter_ids' => facebook_uid },
+                                   "$addToSet" => { 'supporter_ids' => user.id}},
+                                   :upsert => false, :multi => true)
+    end
   end
+
 end

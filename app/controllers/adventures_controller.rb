@@ -67,4 +67,14 @@ class AdventuresController < ApplicationController
     render :json => adventure.to_json
   end
 
+  def add_supporter
+    adv = Adventure.find_by_author(current_user, params.fetch(:adventure_id))
+    facebook_friend_ids = params.fetch(:facebook_friend_ids).split(',')
+
+    facebook_friend_ids.each do |facebook_friend_id|
+      adv.add_facebook_supporter(facebook_friend_id)
+    end
+    render :json => { status: 'OK' }
+  end
+
 end
