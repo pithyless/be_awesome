@@ -28,6 +28,12 @@ class AuthorPost < Post
   def self.create(author, adventure, data={})
     fail 'Forbidden' if adventure.author_id != author.id
 
+    unless adventure.active_pinger_ids.empty?
+      PingerPost.create(adventure.pingers, adventure)
+      Adventure.collection.update({'_id' => adventure.id}, {
+        '$set' => {'active_pinger_ids' => []}})
+    end
+
     id = self.collection.insert({
       type: post_type,
       author_id: author.id,

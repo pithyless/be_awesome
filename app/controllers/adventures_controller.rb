@@ -1,6 +1,7 @@
 # encoding: utf-8
 class AdventuresController < ApplicationController
   include ActionView::Helpers::DateHelper
+  include ActionView::Helpers::TextHelper
 
   def supporters
     adv = Adventure.find(params.fetch(:id))
@@ -96,6 +97,29 @@ class AdventuresController < ApplicationController
   def show
     adv = Adventure.find_by_author_or_supporter(current_user, params.fetch(:id))
 
+    posts = adv.posts.map do |p|
+      {
+        type: p.post_type,
+        created_at: p.created_at,
+        body: p.message,
+        author: {
+          avatar_path: p.post_type == 'pinger' ? '' : p.author.avatar,
+          name: p.post_type == 'pinger' ? '' : p.author.name
+        }
+      }
+    end
+
+    if adv.active_pinger_ids.size > 0
+      msg = "#{pluralize(adv.active_pinger_ids.size, 'person', 'people')}"
+      msg << " are waiting for progress."
+      posts << {
+        type: 'pinger',
+        created_at: Time.now,
+        body: msg,
+        author: { avatar_path: '', name: '' }
+      }
+    end
+
     adventure = {
       title: adv.title,
       status: adv.status,
@@ -103,25 +127,13 @@ class AdventuresController < ApplicationController
       adventure_id: adv.id.to_s,
       active_pingers_count: adv.active_pingers.size,
       active_pingers: adv.active_pingers.map do |p|
-        { avatar_path: p.avatar,
-          name: p.name }
+        { avatar_path: p.avatar, name: p.name }
       end,
       supporters_count: adv.supporters.size,
       supporters: adv.supporters.map do |p|
-        { avatar_path: p.avatar,
-          name: p.name }
+        { avatar_path: p.avatar, name: p.name }
       end,
-      posts: adv.posts.map do |p|
-        {
-          type: p.post_type,
-          created_at: p.created_at,
-          body: p.message,
-          author: {
-            avatar_path: p.author.avatar,
-            name: p.author.name
-          }
-        }
-      end
+      posts: posts
     }
     render :json => adventure.to_json
   end
