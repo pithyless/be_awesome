@@ -5,8 +5,11 @@ BeAwesome::Application.routes.draw do
   get '/adventures' => 'adventures#index'
   get '/adventures/:id' => 'adventures#show'
 
+  post '/adventures/new_post' => 'adventures#create_post'
+  post '/adventures' => 'adventures#create_adventure'
+
   get '/auth/facebook/callback' => 'sessions#create'
-  # TODO: /auth/failure
+
 
 
 

@@ -4,7 +4,8 @@ class Adventure
 
   def last_activity_days
     return @last_activity_days unless @last_activity_days.nil?
-    time = Post.find_all(post_ids, post_type: 'author').last.created_at
+    last_post = Post.find_all(post_ids, post_type: 'author').last
+    time = last_post ? last_post.created_at : self.created_at
     day = Date.new(time.year, time.month, time.day)
     @last_activity_days = (Date.today - day).to_i
   end

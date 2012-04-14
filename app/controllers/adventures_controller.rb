@@ -1,6 +1,23 @@
 # encoding: utf-8
 class AdventuresController < ApplicationController
 
+  def create_adventure
+    data = {
+      title: params.fetch(:title)
+    }
+    adv = Adventure.create(current_user, data)
+    render :json => { status: 'OK' }
+  end
+
+  def create_post
+    data = {
+      message: params.fetch(:message)
+    }
+    adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
+    post = AuthorPost.create(current_user, adv, data)
+    render :json => { status: 'OK' }
+  end
+
   def index
     adventures = [
       {
