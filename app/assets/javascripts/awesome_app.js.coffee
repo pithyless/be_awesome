@@ -17,12 +17,10 @@ class AwesomeApp
     @homePageView = new Awesomeness.Views.HomePageView()
     @supportersView = new Awesomeness.Views.SupportersView()
     @dashboardView = new Awesomeness.Views.DashboardView()
+    @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
 
   checkDefaultRoute: (historyStatus) ->
-    # console.log('window.location.hash', window.location.hash, window.location.hash.length, historyStatus)
-    if historyStatus
-      @router.navigate(window.location.hash, {trigger: true})
-    else
+    unless historyStatus
       window.location.hash = ''
 
   bindRouterEvents: ->
