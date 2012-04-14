@@ -31,10 +31,14 @@
               #add-new-post-form-error-msg.error You need to write something to stay as awesome as you are now
               %textarea{:name => 'message', :placeholder => "Your awesome reply ..."}
               %a.button{:href => "#"} Hit it!
-            %form#ping-adventure
-              %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
-              %a.button{:href => "/adventures/ping"} Ping it!
-
             #add-new-post-form-success-msg.success
               So far so good
+            
+            %form#ping-adventure-form
+              %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
+              %a.button{:href => "#"} Ping it!
+            #ping-adventure-form-success-msg.success
+              You did it!
+
+            
 
