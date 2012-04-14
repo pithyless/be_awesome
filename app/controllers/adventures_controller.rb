@@ -78,7 +78,7 @@ class AdventuresController < ApplicationController
   end
 
   def show
-    adv = Adventure.find_by_author(current_user, params.fetch(:id))
+    adv = Adventure.find_by_author_or_supporter(current_user, params.fetch(:id))
 
     adventure = {
       title: adv.title,
