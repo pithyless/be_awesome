@@ -47,6 +47,10 @@ class AwesomeApp
     adventureToRender = @adventureModel.toRender()
     @adventureView.render(adventureToRender)
     @addNewPostFormView = new Awesomeness.Views.AddNewPostFormView()
+    @addNewPostFormView.bind('success', @onNewPostAdded, @)
+
+  onNewPostAdded: ->
+    @router.navigate("adventures", {trigger: true})
 
   clearAllViews: ->
     @adventureView.clear()

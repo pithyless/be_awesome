@@ -26,4 +26,4 @@ class Awesomeness.Views.AddNewAdventureFormView extends Awesomeness.Views.FormVi
       =>
         @trigger('success')
       ,
-      1000)
+      1500)
