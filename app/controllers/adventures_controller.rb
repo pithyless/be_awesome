@@ -100,7 +100,7 @@ class AdventuresController < ApplicationController
     posts = adv.posts.map do |p|
       {
         type: p.post_type,
-        created_at: p.created_at,
+        created_at: time_ago_in_words(p.created_at) + ' ago',
         body: p.message,
         author: {
           avatar_path: p.post_type == 'pinger' ? '' : p.author.avatar,
