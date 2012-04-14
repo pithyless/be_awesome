@@ -16,6 +16,7 @@ class AwesomeApp
     @adventureView = new Awesomeness.Views.AdventureView()
     @newAdventureView = new Awesomeness.Views.NewAdventureView()
     @homePageView = new Awesomeness.Views.HomePageView()
+    @supportersView = new Awesomeness.Views.SupportersView()
 
   checkDefaultRoute: (historyStatus) ->
     # console.log('window.location.hash', window.location.hash, window.location.hash.length, historyStatus)
@@ -67,6 +68,7 @@ class AwesomeApp
     @adventuresListView.clear()
     @newAdventureView.clear()
     @homePageView.clear()
+    @supportersView.clear()
 
   # initMenu: ->
   #   $('#menu-button').on 'click', (e) ->
@@ -80,6 +82,10 @@ class AwesomeApp
   #       'normal'
 
   onGetSupporters: (id) ->
+    @supporters = new Awesomeness.Models.Supporters({id: id})
+    @supporters.bind('change', @onSupportersModelReady, @)
+
+  onSupportersModelReady: ->
     @clearAllViews()
-    supportersView = new Awesomeness.Views.SupportersView()
-    supportersView.render()
+    supportersToRender = @supporters.toRender()
+    @supportersView.render(supportersToRender)

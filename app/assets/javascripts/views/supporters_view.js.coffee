@@ -8,9 +8,8 @@ class Awesomeness.Views.SupportersView extends Backbone.View
     source = $('#supporters-template').html()
     @template = Handlebars.compile(source)
 
-  render: ->
-    html = @template({})
-    console.log('show supporters')
+  render: (dataToRender) ->
+    html = @template(dataToRender)
     @$el.html(html) 
 
   clear: ->

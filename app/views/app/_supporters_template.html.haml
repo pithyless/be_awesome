@@ -1,3 +1,13 @@
 %script#supporters-template{:type => "text/x-handlebars-template"}
-  elo
+  %h1 {{title}}
+  .supporters-info supporters
+
+  %ul
+    {{#each supporters}}
+    %li
+      %img{:src => '{{avatar_path}}', :alt => 'supporter img'}
+      .name {{name}}
+    {{/each}}
+
+  %a.button{:href => '#'} add new supporters
   
