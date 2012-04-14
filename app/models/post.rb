@@ -32,6 +32,8 @@ class Post
     case hash['type']
     when 'author'
       AuthorPost.new(hash)
+    when 'supporter'
+      SupporterPost.new(hash)
     end
   end
 
