@@ -230,3 +230,10 @@ background: -ms-linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* IE10+ */
 background: linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf1f9', endColorstr='#b5d5fc',GradientType=0 ); /* IE6-8 */
 }
+.list_posts div.pinger 
+{
+background-color: #F8F8F8;
+    background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
+    border: 1px solid #C6C6C6;
+		border-radius: 4px;
+}
