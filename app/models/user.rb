@@ -29,6 +29,12 @@ class User
     end
   end
 
+  def self.find_all(ids)
+    collection.find({'_id' => id}, {"$push" => {'post_ids' => post_id}}).map do |data|
+      self.from_mongo(data)
+    end
+  end
+
   def self.from_mongo(data)
     self.new.tap do |u|
       u.id     = data['_id']

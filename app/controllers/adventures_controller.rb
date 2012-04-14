@@ -19,103 +19,47 @@ class AdventuresController < ApplicationController
   end
 
   def index
-    adventures = [
+    adventures = Adventure.find_all_by_author(current_user).map do |adv|
       {
-        title: 'My First Bicycle Ride',
-        status: 'active',
-        active_pingers_count: 3,
-        last_activity_days: 0,
-        id: 1
-      },
-      {
-        title: 'My Second Adventure',
-        status: 'active',
-        active_pingers_count: 0,
-        last_activity_days: 9,
-        id: 2
-      },
-    ]
+        id: adv.id.to_s,
+        title: adv.title,
+        status: adv.status,
+        active_pingers_count: adv.active_pinger_ids.size,
+        last_activity_days: adv.last_activity_days
+       }
+    end
 
     render :json => adventures.to_json
   end
 
   def show
-    avatar = 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/573520_1180408451_1360557398_q.jpg'
+    adv = Adventure.find_by_author(current_user, params.fetch(:id))
 
     adventure = {
-      title: 'My First Bicycle Ride',
-      status: 'active',
-      adventure_id: '1',
-      active_pingers_count: 3,
-      active_pingers: [
+      title: adv.title,
+      status: adv.status,
+      adventure_id: adv.id,
+      active_pingers_count: adv.active_pingers.size,
+      active_pingers: adv.active_pingers.map do |p|
+        { avatar_path: p.avatar,
+          name: p.name }
+      end,
+      supporters_count: adv.supporters.size,
+      supporters: adv.supporters.map do |p|
+        { avatar_path: p.avatar,
+          name: p.name }
+      end,
+      posts: adv.posts.map do |p|
         {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        },
-        {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        },
-        {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        }
-      ],
-      supporters_count: 3,
-      supporters: [
-        {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        },
-        {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        },
-        {
-          avatar_path: avatar,
-          name: 'Mateusz Wiktor',
-        }
-      ],
-      posts: [
-        {
-          type: 'author',
-          created_at: Date.today - 1,
-          body: 'All about my ride.',
+          type: p.post_type,
+          created_at: p.created_at,
+          body: p.message,
           author: {
-            avatar_path: avatar,
-            name: 'Norbert Wójtowicz'
-          }
-        },
-        {
-          type: 'supporter',
-          created_at: Date.today,
-          body: 'Good Job!',
-          author: {
-            avatar_path: avatar,
-            name: 'Krzysztof Urbas'
-          }
-        },
-        {
-          type: 'pingers',
-          created_at: Date.today,
-          pingers_count: '1',
-          pingers: [
-            {
-              avatar_path: avatar,
-              name: 'Krzysztof Urbas'
-            }
-          ]
-        },
-        {
-          type: 'author',
-          created_at: Date.today - 1,
-          body: 'Huzzah!',
-          author: {
-            avatar_path: avatar,
-            name: 'Norbert Wójtowicz'
+            avatar_path: p.author.avatar,
+            name: p.author.name
           }
         }
-       ]
+      end
     }
     render :json => adventure.to_json
   end

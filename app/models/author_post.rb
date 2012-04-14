@@ -11,6 +11,10 @@ class AuthorPost < Post
     end
   end
 
+  def post_type
+    self.class.post_type
+  end
+
   def self.post_type
     'author'
   end
