@@ -103,7 +103,7 @@ class AdventuresController < ApplicationController
     facebook_friend_ids.each do |_, facebook_friend_id|
       adv.add_facebook_supporter(facebook_friend_id)
     end
-    render :json => { status: 'OK' }
+    redirect_to root_path
   end
 
 end
