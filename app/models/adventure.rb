@@ -77,7 +77,7 @@ class Adventure
     id = BSON::ObjectId.from_string(id) if id.kind_of?(String)
     if adv = collection.find('_id' => id).first
       adv = self.from_mongo(adv)
-      if adv.author.id == person.id or adv.promoter_ids.include?(person.id)
+      if adv.author.id == person.id or adv.supporter_ids.include?(person.id)
         adv
       else
         nil
