@@ -4,9 +4,15 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    user = User.find_by_facebook_uid(auth["uid"]) || User.create_with_facebook(auth)
+    user = User.login_via_facebook(auth)
     session[:user_id] = user.id
     redirect_to root_url
+  end
+
+  def friends
+    token = current_user.facebook_access_token
+    friends = "https://graph.facebook.com/me/friends?access_token=#{token}"
+    render :json => friends.to_json
   end
 
 end

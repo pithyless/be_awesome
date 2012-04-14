@@ -10,6 +10,8 @@ BeAwesome::Application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
+  get '/my/friends' => 'sessions#friends'
+
 
 
 
