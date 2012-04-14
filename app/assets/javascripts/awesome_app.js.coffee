@@ -38,6 +38,7 @@ class AwesomeApp
     @clearAllViews()
     adventureToRender = @adventureModel.toRender()
     @adventureView.render(adventureToRender)
+    @addNewPostFormView = new Awesomeness.Views.AddNewPostFormView()
 
   clearAllViews: ->
     @adventureView.clear()

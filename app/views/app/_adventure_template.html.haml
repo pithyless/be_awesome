@@ -17,9 +17,11 @@
             .post {{body}}
     {{/each}}
 
-  %form#addNewPostForm
+  %form#add-new-post-form
     %h2 New Post
     %div
-      %textarea{:name => 'new_post'}
+      %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
+      %textarea{:name => 'message'}
+      #add-new-post-form-error-msg.error You need to write something to stay so awesome are you are now
     %div
       %a.button{:href => "#"} Add Post
