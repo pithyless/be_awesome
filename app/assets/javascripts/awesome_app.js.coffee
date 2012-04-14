@@ -13,6 +13,7 @@ class AwesomeApp
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
     @adventureView = new Awesomeness.Views.AdventureView()
     @newAdventureView = new Awesomeness.Views.NewAdventureView()
+    @homePageView = new Awesomeness.Views.HomePageView()
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
@@ -47,3 +48,4 @@ class AwesomeApp
     @adventureView.clear()
     @adventuresListView.clear()
     @newAdventureView.clear()
+    @homePageView.clear()
