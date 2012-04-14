@@ -29,7 +29,7 @@ class AuthorPost < Post
     fail 'Forbidden' if adventure.author_id != author.id
 
     unless adventure.active_pinger_ids.empty?
-      PingerPost.create(adventure.pingers, adventure)
+      PingerPost.create(adventure.active_pingers, adventure)
       Adventure.collection.update({'_id' => adventure.id}, {
         '$set' => {'active_pinger_ids' => []}})
     end

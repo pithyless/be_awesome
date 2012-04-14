@@ -22,12 +22,14 @@ class PingerPost < Post
   end
 
   def self.create(pingers, adventure)
-    msg = "#{pluralize(pingers.size, 'person', 'people')}"
-    msg << " waited for progress."
+    msg = if pingers.size > 1
+            "#{pingers.size} were rewarded for their patience."
+          else
+            '1 person was rewarded for patience.'
+          end
 
     id = self.collection.insert({
       type: post_type,
-      author_id: author.id,
       created_at: Time.now,
       message: msg,
       pinger_ids: pingers.map { |p| p.id }

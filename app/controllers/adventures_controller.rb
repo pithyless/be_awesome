@@ -43,7 +43,7 @@ class AdventuresController < ApplicationController
     data = {
       message: params.fetch(:message)
     }
-    adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
+    adv = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
     if adv.author.id == current_user.id
       AuthorPost.create(current_user, adv, data)
     elsif adv.supporter_ids.include?(current_user.id)
@@ -55,7 +55,7 @@ class AdventuresController < ApplicationController
   end
 
   def ping
-    adv  = Adventure.find(params.fetch(:id)) # TODO: authorize gently
+    adv = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
     if adv.supporter_ids.include?(current_user.id)
       adv.ping(current_user)
     else
@@ -110,8 +110,8 @@ class AdventuresController < ApplicationController
     end
 
     if adv.active_pinger_ids.size > 0
-      msg = "#{pluralize(adv.active_pinger_ids.size, 'person', 'people')}"
-      msg << " are waiting for progress."
+      msg = "#{pluralize(adv.active_pinger_ids.size, 'person is', 'people are')}"
+      msg << " waiting for progress."
       posts << {
         type: 'pinger',
         created_at: Time.now,
