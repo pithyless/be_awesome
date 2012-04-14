@@ -24,7 +24,8 @@ class AdventuresController < ApplicationController
 
     data = {
       title: adv.title,
-      supporters: supporters
+      supporters: supporters,
+      invite_supporters_url: adv.new_supporters_invite_url
     }
 
     render :json => data.to_json
