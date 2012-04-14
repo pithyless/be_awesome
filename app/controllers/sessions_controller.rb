@@ -10,9 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def friends
-    token = current_user.facebook_access_token
-    friends = "https://graph.facebook.com/me/friends?access_token=#{token}"
-    render :json => friends.to_json
+    render :json => current_user.facebook_friends.to_json
   end
 
 end

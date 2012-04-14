@@ -5,6 +5,13 @@ class User
     @adventures ||= Adventure.find_all_by_author(self)
   end
 
+  def facebook_friends
+    return @facebook_friends unless @facebook_friends.nil?
+    token = current_user.facebook_access_token
+    response = RestClient.get "https://graph.facebook.com/me/friends?access_token=#{token}", {:accept => :json}
+    @facebook_friends = response.body
+  end
+
 
   def self.collection
     DB.collection('users')
