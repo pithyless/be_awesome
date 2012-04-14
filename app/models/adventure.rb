@@ -68,20 +68,30 @@ class Adventure
 
   def self.find_by_author(author, id)
     id = BSON::ObjectId.from_string(id) if id.kind_of?(String)
-    if adv = collection.find({'author_id' => author.id, '_id' => id},
-                   sort: [['created_at' => Mongo::ASCENDING]]).first
+    if adv = collection.find({'author_id' => author.id, '_id' => id}).first
       self.from_mongo(adv)
     end
   end
 
+  def self.find_by_author_or_supporter(author, id)
+    id = BSON::ObjectId.from_string(id) if id.kind_of?(String)
+    if adv = collection.find('_id' => id).first
+      if adv.user.id == author.id or adv.promoter_ids.include?(author.id)
+        self.from_mongo(adv)
+      end
+    end
+  end
+
   def self.find_all_by_author(author)
-    collection.find({'author_id' => author.id}).map do |data|
+    collection.find({'author_id' => author.id},
+                    sort: [['created_at' => Mongo::ASCENDING]]).map do |data|
       self.from_mongo(data)
     end
   end
 
   def self.find_all_by_supporter(supporter)
-    collection.find({'supporter_ids' => supporter.id}).map do |data|
+    collection.find({'supporter_ids' => supporter.id},
+                    sort: [['created_at' => Mongo::ASCENDING]]).map do |data|
       self.from_mongo(data)
     end
   end
