@@ -1,11 +1,17 @@
 class AuthorPost < Post
   def initialize(attrs={})
     attrs.each do |key, val|
-      send("#{key}=", val)
+      if key == 'type'
+        next
+      elsif key == '_id'
+        self.id = val
+      else
+        send("#{key}=", val)
+      end
     end
   end
 
-  def post_type
+  def self.post_type
     'author'
   end
 
@@ -13,6 +19,7 @@ class AuthorPost < Post
     fail 'Forbidden' if adventure.author_id != author.id
 
     id = self.collection.insert({
+      type: post_type,
       created_at: Time.now,
       message: data.fetch(:message)
     })

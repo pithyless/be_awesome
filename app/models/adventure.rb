@@ -1,6 +1,13 @@
 class Adventure
-  attr_accessor :id, :author_id, :created_at, :title, :active_pinger_ids,
-    :supporter_ids, :post_ids
+  attr_accessor :id, :status, :author_id, :created_at, :title,
+    :active_pinger_ids, :supporter_ids, :post_ids
+
+  def last_activity_days
+    return @last_activity_days unless @last_activity_days.nil?
+    time = Post.find_all(post_ids, post_type: 'author').last.created_at
+    day = Date.new(time.year, time.month, time.day)
+    @last_activity_days = (Date.today - day).to_i
+  end
 
   def posts
     @posts ||= Post.find_all(post_ids)
@@ -41,6 +48,7 @@ class Adventure
   def self.create(author, data={})
     id = self.collection.insert({
       created_at: Time.now,
+      status: 'active',
       author_id: author.id,
       title: data.fetch(:title),
       active_pinger_ids: [],
