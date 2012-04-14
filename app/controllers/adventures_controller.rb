@@ -43,7 +43,13 @@ class AdventuresController < ApplicationController
       message: params.fetch(:message)
     }
     adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
-    post = AuthorPost.create(current_user, adv, data)
+    if adv.author.id == current_user.id
+      AuthorPost.create(current_user, adv, data)
+    elsif adv.supporter_ids.include?(current_user.id)
+      SupporterPost.create(current_user, adv, data)
+    else
+      fail 'Forbidden post'
+    end
     render :json => { status: 'OK', adventure_id: adv.id.to_s }
   end
 
