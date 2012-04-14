@@ -54,7 +54,7 @@ class AdventuresController < ApplicationController
   end
 
   def ping
-    adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
+    adv  = Adventure.find(params.fetch(:id)) # TODO: authorize gently
     if adv.supporter_ids.include?(current_user.id)
       adv.ping(current_user)
     else
