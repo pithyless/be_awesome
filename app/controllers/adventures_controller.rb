@@ -120,10 +120,17 @@ class AdventuresController < ApplicationController
       }
     end
 
+    current_user_can_ping = false
+    if adv.supporter_ids.include?(current_user.id) and
+      !adv.active_pinger_ids.include?(current_user.id)
+      current_user_can_ping = true
+    end
+
     adventure = {
       title: adv.title,
       status: adv.status,
       current_user_avatar: current_user.avatar,
+      current_user_can_ping: current_user_can_ping,
       adventure_id: adv.id.to_s,
       active_pingers_count: adv.active_pingers.size,
       active_pingers: adv.active_pingers.map do |p|
