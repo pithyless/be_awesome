@@ -7,7 +7,7 @@ class AdventuresController < ApplicationController
       title: params.fetch(:title)
     }
     adv = Adventure.create(current_user, data)
-    render :json => { status: 'OK' }
+    render :json => { status: 'OK', adventure_id: adv.id.to_s }
   end
 
   def create_post
