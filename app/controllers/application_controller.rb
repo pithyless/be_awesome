@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   def check_sign_in
     if Rails.env.development?
-      user = User.find('4f88b271529468416ab77a97')
-      session[:user_id] = '4f88b271529468416ab77a97'
+      user = User.find('4f889af5e756a90003000001')
+      session[:user_id] = '4f889af5e756a90003000001'
       @current_user = user
     end
 
