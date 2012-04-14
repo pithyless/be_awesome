@@ -2,12 +2,10 @@ class Adventure
   attr_accessor :id, :status, :author_id, :created_at, :title,
     :active_pinger_ids, :supporter_ids, :post_ids
 
-  def last_activity_days
-    return @last_activity_days unless @last_activity_days.nil?
+  def last_activity
+    return @last_activity unless @last_activity.nil?
     last_post = Post.find_all(post_ids, post_type: 'author').last
-    time = last_post ? last_post.created_at : created_at
-    day = Date.new(time.year, time.month, time.day)
-    @last_activity_days = (Date.today - day).to_i
+    @last_activity = last_post ? last_post.created_at : created_at
   end
 
   def posts

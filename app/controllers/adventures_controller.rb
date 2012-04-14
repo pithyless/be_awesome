@@ -1,5 +1,6 @@
 # encoding: utf-8
 class AdventuresController < ApplicationController
+  include ActionView::Helpers::DateHelper
 
   def create
     data = {
@@ -25,7 +26,7 @@ class AdventuresController < ApplicationController
         title: adv.title,
         status: adv.status,
         active_pingers_count: adv.active_pinger_ids.size,
-        last_activity_days: adv.last_activity_days
+        last_activity_days: time_ago_in_words(adv.last_activity) + ' ago'
        }
     end
 
@@ -38,7 +39,7 @@ class AdventuresController < ApplicationController
     adventure = {
       title: adv.title,
       status: adv.status,
-      adventure_id: adv.id,
+      adventure_id: adv.id.to_s,
       active_pingers_count: adv.active_pingers.size,
       active_pingers: adv.active_pingers.map do |p|
         { avatar_path: p.avatar,

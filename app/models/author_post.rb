@@ -1,4 +1,10 @@
 class AuthorPost < Post
+  attr_accessor :author_id
+
+  def author
+    @author = User.find(self.author_id)
+  end
+
   def initialize(attrs={})
     attrs.each do |key, val|
       if key == 'type'
@@ -24,6 +30,7 @@ class AuthorPost < Post
 
     id = self.collection.insert({
       type: post_type,
+      author_id: author.id,
       created_at: Time.now,
       message: data.fetch(:message)
     })
