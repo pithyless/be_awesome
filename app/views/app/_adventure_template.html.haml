@@ -19,7 +19,8 @@
     %li
       %table
         %tr
-          %td
+          %td.vtop
+            %img{:src => '{{current_user_avatar}}', :alt => 'your avatar'}
           %td
             %form#add-new-post-form
               %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
