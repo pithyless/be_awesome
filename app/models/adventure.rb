@@ -80,6 +80,13 @@ class Adventure
     end
   end
 
+  def self.find_all_by_supporter(supporter)
+    collection.find({'support_ids' => supporter.id}).map do |data|
+      self.from_mongo(data)
+    end
+  end
+
+
   def self.from_mongo(hash)
     self.new.tap do |adv|
       adv.id = hash['_id']

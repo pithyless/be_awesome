@@ -2,7 +2,6 @@
 class AdventuresController < ApplicationController
   include ActionView::Helpers::DateHelper
 
-
   def supporters
     adv = Adventure.find(params.fetch(:id))
     supporters = adv.supporters.map do |s|
@@ -46,6 +45,21 @@ class AdventuresController < ApplicationController
     adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
     post = AuthorPost.create(current_user, adv, data)
     render :json => { status: 'OK', adventure_id: adv.id.to_s }
+  end
+
+  def supportings
+    adventures = Adventure.find_all_by_supporter(current_user).map do |adv|
+      {
+        id: adv.id.to_s,
+        title: adv.title,
+        status: adv.status,
+        avatar_path: adv.author.avatar,
+        active_pingers_count: adv.active_pinger_ids.size,
+        last_activity_days: time_ago_in_words(adv.last_activity)
+       }
+    end
+
+    render :json => adventures.to_json
   end
 
   def index

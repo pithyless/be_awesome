@@ -13,7 +13,8 @@ BeAwesome::Application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  get '/my/friends' => 'sessions#friends'
+
+  get '/supportings' => 'adventures#supportings'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

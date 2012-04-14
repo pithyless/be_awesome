@@ -1,0 +1,5 @@
+  # https://graph.facebook.com/DESTINATION_ID/apprequests?message=Testing&method=post&access_token=APP_ID|APP_SECRET
+  #
+  # https://graph.facebook.com/DESTINATION_ID/apprequests?message=Testing&method=post&access_token=SECRET_TOKEN
+
+
