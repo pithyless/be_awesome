@@ -15,15 +15,15 @@ class Awesomeness.Views.AddNewAdventureFormView extends Awesomeness.Views.FormVi
       success: (data) =>
         console.log('ajax success', data)
         if data.status == 'OK'
-          @onSuccess()
+          @onSuccess(data.adventure_id)
       error: (msg) ->
         console.log('ajax error', msg)
 
-  onSuccess: ->
+  onSuccess: (adventureId) ->
     @$el.slideUp()
     $(@elSuccessMsg).slideDown()
     setTimeout(
       =>
-        @trigger('success')
+        @trigger('success', adventureId)
       ,
       1500)
