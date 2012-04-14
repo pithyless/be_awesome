@@ -61,8 +61,9 @@ class AwesomeApp
     @addNewPostFormView = new Awesomeness.Views.AddNewPostFormView()
     @addNewPostFormView.bind('success', @onNewPostAdded, @)
 
-  onNewPostAdded: ->
-    @router.navigate("adventures", {trigger: true})
+  onNewPostAdded: (adventureId) ->
+    @router.navigate("adventures", {replace: true})
+    @router.navigate("adventures/" + adventureId, {trigger: true})
 
   clearAllViews: ->
     @adventureView.clear()

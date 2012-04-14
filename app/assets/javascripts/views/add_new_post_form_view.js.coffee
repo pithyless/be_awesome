@@ -14,15 +14,15 @@ class Awesomeness.Views.AddNewPostFormView extends Awesomeness.Views.FormView
       data: dataToSend
       success: (data) =>
         if data.status == 'OK'
-          @onSuccess()
+          @onSuccess(data.adventure_id)
       error: (msg) ->
         console.log('ajax error', msg)
 
-  onSuccess: ->
+  onSuccess: (adventureId) ->
     @$el.slideUp()
     $(@elSuccessMsg).slideDown()
     setTimeout(
       =>
-        @trigger('success')
+        @trigger('success', adventureId)
       ,
       1500)
