@@ -1,7 +1,7 @@
 # encoding: utf-8
 class AdventuresController < ApplicationController
 
-  def create_adventure
+  def create
     data = {
       title: params.fetch(:title)
     }

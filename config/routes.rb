@@ -6,7 +6,7 @@ BeAwesome::Application.routes.draw do
   get '/adventures/:id' => 'adventures#show'
 
   post '/adventures/new_post' => 'adventures#create_post'
-  post '/adventures' => 'adventures#create_adventure'
+  post '/adventures' => 'adventures#create'
 
   get '/auth/facebook/callback' => 'sessions#create'
 

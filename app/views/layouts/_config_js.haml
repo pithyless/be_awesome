@@ -5,6 +5,7 @@
       adventureUrlRoot: "#{url_for(controller: 'adventures', action: 'index')}"
     },
     forms: {
-      addNewPostUrl: '/'
+      addNewPostUrl: "#{url_for(controller: 'adventures', action: 'create_post')}",
+      addNewAdventureUrl: "#{url_for(controller: 'adventures', action: 'create')}"
     }
   };
