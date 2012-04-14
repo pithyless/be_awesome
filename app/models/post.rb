@@ -16,11 +16,14 @@ class Post
     end
   end
 
-  def self.find_all(ids=[])
+  def self.find_all(ids=[], opts={})
     ids = ids.map do |id|
-      id = BSON::ObjectId.from_string(id) if id.kind_of?(String)
+      id.kind_of?(String) ? BSON::ObjectId.from_string(id) : id
     end
-    collection.find({'_id' => {'$in' => ids}}).map do |data|
+    query = {'_id' => {'$in' => ids}}
+    query['type'] = opts[:post_type] if opts[:post_type]
+    sort = [['created_at', Mongo::ASCENDING]]
+    collection.find(query, :sort => sort).map do |data|
       self.from_mongo(data)
     end
   end

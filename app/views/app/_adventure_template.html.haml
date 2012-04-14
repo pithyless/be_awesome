@@ -2,7 +2,7 @@
   %h1 {{title}}
   %ol.list.list_posts
     {{#each posts}}
-    %li
+    %li{:class => '{{type}}'}
       %table
         %tr
           %td
@@ -16,12 +16,13 @@
                 said:
               %p {{body}}
     {{/each}}
-
     %li
       %table
         %tr
           %td
           %td
-            %form#addNewPostForm
-            %textarea{:name => 'new_post', :placeholder => "Your awesome reply ..."}
-            %a.button{:href => "#"} Hit it!
+            %form#add-new-post-form
+              %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
+              #add-new-post-form-error-msg.error You need to write something to stay so awesome are you are now
+              %textarea{:name => 'message', :placeholder => "Your awesome reply ..."}
+              %a.button{:href => "#"} Hit it!

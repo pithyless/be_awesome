@@ -28,6 +28,7 @@ class AdventuresController < ApplicationController
     adventure = {
       title: 'My First Bicycle Ride',
       status: 'active',
+      adventure_id: '1',
       active_pingers_count: 3,
       active_pingers: [
         {
