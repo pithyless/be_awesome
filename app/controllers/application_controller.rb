@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   def check_sign_in
     if Rails.env.development?
       user = User.new.tap do |u|
-        u.id = '424242'
+        u.id = BSON::ObjectId('4f88b271529468416ab77a97')
         u.name = 'Billy Joel'
         u.email = 'billy@joel.com'
         u.avatar = 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/573520_1180408451_1360557398_q.jpg'
       end
-      session[:user_id] = '424242'
+      session[:user_id] = '4f88b271529468416ab77a97'
       @current_user = user
     end
 
