@@ -81,7 +81,7 @@ class Adventure
   end
 
   def self.find_all_by_supporter(supporter)
-    collection.find({'support_ids' => supporter.id}).map do |data|
+    collection.find({'supporter_ids' => supporter.id}).map do |data|
       self.from_mongo(data)
     end
   end
