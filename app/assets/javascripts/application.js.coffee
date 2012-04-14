@@ -4,6 +4,7 @@
 #= require libs/underscore-min
 #= require libs/backbone-min
 #= require libs/handlebars-1.0.0.beta.6
+#= require libs/jquery.positioner
 #= require_tree ./models
 #= require_tree ./collections
 #= require_tree ./routers
