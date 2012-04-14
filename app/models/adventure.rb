@@ -73,10 +73,10 @@ class Adventure
     end
   end
 
-  def self.find_by_author_or_supporter(author, id)
+  def self.find_by_author_or_supporter(person, id)
     id = BSON::ObjectId.from_string(id) if id.kind_of?(String)
     if adv = collection.find('_id' => id).first
-      if adv.user.id == author.id or adv.promoter_ids.include?(author.id)
+      if adv.author.id == person.id or adv.promoter_ids.include?(person.id)
         self.from_mongo(adv)
       end
     end
