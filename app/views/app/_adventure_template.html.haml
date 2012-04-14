@@ -8,18 +8,20 @@
           %td
             %img{:src => '{{author.avatar_path}}', :alt => 'author avatar'}
           %td
-            %div
+            .post
               %small
                 %strong.list-user {{author.name}}
                 on
                 %span.created-at {{created_at}}
                 said:
-            .post {{body}}
+              %p {{body}}
     {{/each}}
 
-  %form#addNewPostForm
-    %h2 New Post
-    %div
-      %textarea{:name => 'new_post'}
-    %div
-      %a.button{:href => "#"} Add Post
+    %li
+      %table
+        %tr
+          %td
+          %td
+            %form#addNewPostForm
+            %textarea{:name => 'new_post', :placeholder => "Your awesome reply ..."}
+            %a.button{:href => "#"} Hit it!
