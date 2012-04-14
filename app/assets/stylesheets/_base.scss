@@ -1,5 +1,5 @@
 body {
-	background: url(bg.jpg) repeat left top #3cbce1;
+	background: url(bg.jpg) repeat left top #333333;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
@@ -236,4 +236,28 @@ background-color: #F8F8F8;
     background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
     border: 1px solid #C6C6C6;
 		border-radius: 4px;
+}
+#home-page-box {
+background: url(ba.png) no-repeat left top #333333;
+position: relative;
+width: 100%;
+}
+#home-page-box img {
+width: 100%;
+}
+#home-page-box .button_wrap {
+position: absolute;
+bottom: 40px;
+left: 10%;
+width: 80%;
+}
+#home-page-box .button {
+ font-size: 30px;
+	line-height: auto;
+	height: auto;
+	padding: 15px 0;
+	-webkit-box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.6);
+	box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.6);
+
 }
