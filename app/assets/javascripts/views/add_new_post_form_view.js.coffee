@@ -4,4 +4,14 @@ class Awesomeness.Views.AddNewPostFormView extends Awesomeness.Views.FormView
   ajaxUrl: awesomeConfig.forms.addNewPostUrl
 
   initialize: ->
-    super(@el, @elErrorMsg, @ajaxUrl)
+    super(@el, @elErrorMsg)
+
+  send: (dataToSend) ->
+    $.ajax
+      url: @ajaxUrl
+      type: 'POST'
+      data: dataToSend
+      success: (data) =>
+        console.log('ajax success', data)
+      error: (msg) ->
+        console.log('ajax error', msg)

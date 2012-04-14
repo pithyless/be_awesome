@@ -24,6 +24,10 @@ class AwesomeApp
     @clearAllViews()
     @newAdventureView.render()
     @addNewAdventureFormView = new Awesomeness.Views.AddNewAdventureFormView()
+    @addNewAdventureFormView.bind('success', @onNewAdventureAdded, @)
+
+  onNewAdventureAdded: ->
+    @router.navigate("adventures", {trigger: true})
 
   onGetAdventuresList: ->
     @adventuresCollection = new Awesomeness.Collections.Adventures()

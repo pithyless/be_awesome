@@ -1,6 +1,6 @@
 class Awesomeness.Views.FormView extends Backbone.View
   
-  initialize: (@el, @elErrorMsg, @ajaxUrl) ->
+  initialize: (@el, @elErrorMsg) ->
     @initSendEvent()
 
   initSendEvent: ->
@@ -26,13 +26,3 @@ class Awesomeness.Views.FormView extends Backbone.View
     else
       $(@elErrorMsg).show()
       return false
-
-  send: (dataToSend) ->
-    $.ajax
-      url: @ajaxUrl
-      type: 'POST'
-      data: dataToSend
-      success: (data) ->
-        console.log('ajax success', data)
-      error: (msg) ->
-        console.log('ajax error', msg)
