@@ -23,7 +23,7 @@ class AdventuresController < ApplicationController
   end
 
   def show
-    avatar = 'https://en.gravatar.com/userimage/11590901/c59c95d70942a008aa92adc5ed3c7637.jpg?size=50'
+    avatar = 'http://profile.ak.fbcdn.net/hprofile-ak-snc4/573520_1180408451_1360557398_q.jpg'
 
     adventure = {
       title: 'My First Bicycle Ride',
