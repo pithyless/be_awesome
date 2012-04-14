@@ -7,13 +7,24 @@ class Awesomeness.Views.AdventuresListView extends Backbone.View
   initTemplate: () ->
     source = $('#adventures-list-template').html()
     @template = Handlebars.compile(source)
+
+    itemSource = $('#adventures-list-item-template').html()
+    @itemTemplate = Handlebars.compile(itemSource)
     
   render: (data) ->
+    itemsHtml = @renderItems(data)
+    pageHtml = @renderPage(itemsHtml)
+    @$el.html(pageHtml)
+    @$el.find('ul').html(itemsHtml)
+
+  renderItems: (data) ->
     html = ''
     _.each data, (element) =>
-      html += @template( element )
+      html += @itemTemplate( element )
+    return html
 
-    @$el.find('ul').html(html)
+  renderPage: () ->
+    html = @template({})
 
   clear: ->
-    @$el.find('ul').html('')
+    @$el.html('')

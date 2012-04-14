@@ -12,6 +12,8 @@ class AwesomeApp
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
     @adventureView = new Awesomeness.Views.AdventureView()
+    @newAdventureView = new Awesomeness.Views.NewAdventureView()
+    @homePageView = new Awesomeness.Views.HomePageView()
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
@@ -19,7 +21,9 @@ class AwesomeApp
     @router.bind('getAdventure', @onGetAdventure, @)
 
   onNewAdventure: ->
-    console.log("new adventure")
+    @clearAllViews()
+    @newAdventureView.render()
+    @addNewAdventureFormView = new Awesomeness.Views.AddNewAdventureFormView()
 
   onGetAdventuresList: ->
     @adventuresCollection = new Awesomeness.Collections.Adventures()
@@ -43,3 +47,5 @@ class AwesomeApp
   clearAllViews: ->
     @adventureView.clear()
     @adventuresListView.clear()
+    @newAdventureView.clear()
+    @homePageView.clear()
