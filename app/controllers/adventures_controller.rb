@@ -40,6 +40,7 @@ class AdventuresController < ApplicationController
     adventure = {
       title: adv.title,
       status: adv.status,
+      current_user_avatar: current_user.avatar,
       adventure_id: adv.id.to_s,
       active_pingers_count: adv.active_pingers.size,
       active_pingers: adv.active_pingers.map do |p|
