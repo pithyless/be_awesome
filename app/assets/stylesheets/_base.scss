@@ -199,6 +199,11 @@ h1 {
 .list_posts li {
   border-bottom: none;
 }
+.list a {
+	display: block;
+  float: left;
+  width: 100%;
+}
 .list_posts .post {
   -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
