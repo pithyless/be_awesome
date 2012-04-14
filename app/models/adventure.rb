@@ -18,12 +18,24 @@ class Adventure
     @posts ||= Post.find_all(post_ids)
   end
 
+  def add_facebook_supporter(facebook_friend_id)
+    if friend = User.find_by_facebook_uid(facebook_friend_id)
+      self.class.collection.update({'_id' => self.id}, {
+        "$addToSet" => {'supporter_ids' => friend.id}})
+    else
+      self.class.collection.update({'_id' => self.id}, {
+        "$addToSet" => {'facebook_supporter_ids' => facebook_friend_id }})
+    end
+  end
+
   def active_pingers
     @active_pingers ||= [] # TODO!
   end
 
   def supporters
-    @supporters ||= [] # TODO!
+    @supporters ||= supporter_ids.map do |supporter_id|
+      User.find(supporter_id)
+    end
   end
 
   def add_post_id(post_id)
