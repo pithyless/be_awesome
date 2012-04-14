@@ -25,8 +25,9 @@ class AdventuresController < ApplicationController
         id: adv.id.to_s,
         title: adv.title,
         status: adv.status,
+        avatar_path: adv.author.avatar,
         active_pingers_count: adv.active_pinger_ids.size,
-        last_activity_days: time_ago_in_words(adv.last_activity) + ' ago'
+        last_activity_days: time_ago_in_words(adv.last_activity)
        }
     end
 

@@ -2,6 +2,12 @@ class Adventure
   attr_accessor :id, :status, :author_id, :created_at, :title,
     :active_pinger_ids, :supporter_ids, :post_ids
 
+  attr_accessor :author_id
+
+  def author
+    @author = User.find(self.author_id)
+  end
+
   def last_activity
     return @last_activity unless @last_activity.nil?
     last_post = Post.find_all(post_ids, post_type: 'author').last
