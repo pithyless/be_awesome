@@ -7,12 +7,14 @@ BeAwesome::Application.routes.draw do
 
   post '/adventures/new_post' => 'adventures#create_post'
   post '/adventures' => 'adventures#create'
-  post '/adventures/add_supporter' => 'adventures#add_supporter'
+
+  get '/adventures/add_supporters_callback' => 'adventures#add_supporters_callback'
 
   get '/auth/facebook/callback' => 'sessions#create'
 
   get '/my/friends' => 'sessions#friends'
 
+  # http://www.facebook.com/dialog/apprequests?app_id=119477631518475&message=Facebook%20Dialogs%20are%20so%20easy!&title=HelpMeWithX&data=4f89443adcd95104b8000006&redirect_uri=http://be-awesome.herokuapp.com/add_supporters_callback
 
 
 
