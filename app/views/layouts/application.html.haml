@@ -32,20 +32,20 @@
 
   %body{:class => controller.controller_name}
 
-    #wrapper
-      %header
-        %a.head_btn.head_cancel{:href => "javascript:history.back()", :title => "Cancel"} Cancel
-        Be Awesome
-        %a.head_btn#menu-button{:href => "#menu"} Menu
-
-      #content
-        = yield
-
-      %footer
+    %header
+      %a.button-small{:href => "javascript:history.back()", :title => "Cancel"} Cancel
+      
+      %ul.switcher
         %li
-          %a{:href => "#adventures"} I'm Awesome
+          %a.active{:href => "#adventures"} I'm Awesome
         %li
           %a{:href => "#dashboard"} I'm Helpful
+
+      %a.button-small#menu-button{:href => "#menu"} Menu
+
+    #content
+      = yield
+
 
     = yield :scripts
     = render "layouts/config_js"
