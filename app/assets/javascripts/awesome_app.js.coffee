@@ -5,12 +5,11 @@ class AwesomeApp
   constructor: ->
 
     @router = new Awesomeness.Routers.AwesomeRouter()
-    
+    @bindRouterEvents()
     historyStatus = Backbone.history.start({pushState: false})
 
     @checkDefaultRoute(historyStatus)
-    @bindRouterEvents()
-
+    
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
     @adventureView = new Awesomeness.Views.AdventureView()
