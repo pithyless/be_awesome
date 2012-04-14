@@ -4,7 +4,7 @@
   line-height: 50px;
   height: 50px;
   display: inline-block;
-  width: 50%;
+  width: 70%;
 
   li {
     float: left;
@@ -34,5 +34,35 @@
     &.active {
       @include background-image(linear-gradient(#000 0%, #555 100%)); 
     }
+  }
+}
+
+.supporters-list {
+  @include pie-clearfix;
+
+  li {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.list_posts {
+
+  .pinger {
+    .post {
+      background: #ff0;
+    }
+
+    small {
+      display: none;
+    }
+  }
+
+  .post p {
+    clear: both;
+  }
+
+  .created-at {
+    float: right;
   }
 }
