@@ -41,8 +41,15 @@ class Adventure
     end
   end
 
+  def ping(pinger)
+    self.class.collection.update({'_id' => id}, {
+      "$addToSet" => {'active_pinger_ids' => pinger.id}})
+  end
+
   def active_pingers
-    @active_pingers ||= [] # TODO!
+    @active_pingers ||= active_pinger_ids.map do |pinger_id|
+      User.find(pinger_id)
+    end
   end
 
   def supporters

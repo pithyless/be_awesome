@@ -53,6 +53,16 @@ class AdventuresController < ApplicationController
     render :json => { status: 'OK', adventure_id: adv.id.to_s }
   end
 
+  def ping
+    adv  = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
+    if adv.supporter_ids.include?(current_user.id)
+      adv.ping(current_user)
+    else
+      fail 'Forbidden ping'
+    end
+    render :json => { status: 'OK', adventure_id: adv.id.to_s }
+  end
+
   def supportings
     adventures = Adventure.find_all_by_supporter(current_user).map do |adv|
       {
