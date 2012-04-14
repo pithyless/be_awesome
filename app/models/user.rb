@@ -25,7 +25,7 @@ class User
 
   def self.login_via_facebook(auth)
     user = User.find_by_facebook_uid(auth["uid"]) || User.create_with_facebook(auth)
-    user.update({'_id' => user.id}, {"$set" => { 'facebook_access_token' => auth.credentials.token, 'facebook_expires_at' => auth.credential.expires_at }})
+    user.update({'_id' => user.id}, {"$set" => { 'facebook_access_token' => auth.credentials.token, 'facebook_expires_at' => auth.credentials.expires_at }})
     user
   end
 
