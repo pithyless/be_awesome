@@ -4,7 +4,7 @@ BeAwesome::Application.routes.draw do
 
   get '/adventures' => 'adventures#index'
   get '/adventures/:id' => 'adventures#show'
-  get '/adventures/:id/supporters' => 'adventures#supporters'
+  get '/adventures/supporters/:id' => 'adventures#supporters'
 
   post '/adventures/new_post' => 'adventures#create_post'
   post '/adventures' => 'adventures#create'
