@@ -2,6 +2,29 @@
 class AdventuresController < ApplicationController
   include ActionView::Helpers::DateHelper
 
+
+  def supporters
+    adv = Adventure.find(params.fetch(:id))
+    supporters = adv.supporters.map do |s|
+      {
+        avatar_path: s.avatar,
+        name: s.name
+      }
+    end
+
+    if Rails.env.development?
+      # TODO: hack!
+      supporters = [
+        { avatar_path: "http://graph.facebook.com/1180408451/picture?type=square",
+        name: "Krzysiek Urbas" },
+        { avatar_path: "http://graph.facebook.com/523823416/picture?type=square",
+        name: "Mateusz Wiktor" }
+      ]
+    end
+
+    render :json => supporters.to_json
+   end
+
   def create
     data = {
       title: params.fetch(:title)
