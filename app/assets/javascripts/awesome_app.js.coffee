@@ -17,6 +17,7 @@ class AwesomeApp
     @newAdventureView = new Awesomeness.Views.NewAdventureView()
     @homePageView = new Awesomeness.Views.HomePageView()
     @supportersView = new Awesomeness.Views.SupportersView()
+    @dashboardView = new Awesomeness.Views.DashboardView()
 
   checkDefaultRoute: (historyStatus) ->
     # console.log('window.location.hash', window.location.hash, window.location.hash.length, historyStatus)
@@ -30,6 +31,7 @@ class AwesomeApp
     @router.bind('getAdventuresList', @onGetAdventuresList, @)
     @router.bind('getAdventure', @onGetAdventure, @)
     @router.bind('getSupporters', @onGetSupporters, @)
+    @router.bind('getDashboard', @onGetDashboard, @)
 
   onNewAdventure: ->
     @clearAllViews()
@@ -69,6 +71,7 @@ class AwesomeApp
     @newAdventureView.clear()
     @homePageView.clear()
     @supportersView.clear()
+    @dashboardView.clear()
 
   # initMenu: ->
   #   $('#menu-button').on 'click', (e) ->
@@ -89,3 +92,12 @@ class AwesomeApp
     @clearAllViews()
     supportersToRender = @supporters.toRender()
     @supportersView.render(supportersToRender)
+
+  onGetDashboard: ->
+    @supportingsCollection = new Awesomeness.Collections.Supportings()
+    @supportingsCollection.bind('reset', @onSupportingsCollectionReady, @)
+
+  onSupportingsCollectionReady: ->
+    @clearAllViews()
+    supportingsToRender = @supportingsCollection.toRender()
+    @dashboardView.render(supportingsToRender)
