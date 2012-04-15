@@ -25,6 +25,7 @@ class AdventuresController < ApplicationController
     data = {
       title: adv.title,
       supporters: supporters,
+      current_user_can_add_supporters: current_user.id == adv.author.id,
       invite_supporters_url: adv.new_supporters_invite_url
     }
 

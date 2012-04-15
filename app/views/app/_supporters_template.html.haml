@@ -8,5 +8,7 @@
       %img.avatar{:src => '{{avatar_path}}', :alt => 'supporter img'}
     {{/each}}
 
+  {{#if current_user_can_add_supporters}}
   %a.button{:href => '{{invite_supporters_url}}'} Add new supporters
+  {{/if}}
   

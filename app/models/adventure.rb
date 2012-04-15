@@ -106,7 +106,7 @@ class Adventure
   end
 
   def self.find_all_by_supporter(supporter)
-    collection.find({'supporter_ids' => supporter.id},
+    collection.find({'supporter_ids' => supporter.id, 'status' => 'active'},
                     sort: [['created_at' => Mongo::ASCENDING]]).map do |data|
       self.from_mongo(data)
     end
