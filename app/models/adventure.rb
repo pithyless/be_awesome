@@ -93,10 +93,16 @@ class Adventure
   end
 
   def self.find_all_by_author(author)
-    collection.find({'author_id' => author.id},
-                    sort: [['created_at' => Mongo::ASCENDING]]).map do |data|
-      self.from_mongo(data)
+    items = []
+    collection.find({'author_id' => author.id, 'status' => 'active'},
+                    sort: [['created_at' => Mongo::ASCENDING]]).each do |data|
+      items << self.from_mongo(data)
     end
+    collection.find({'author_id' => author.id, 'status' => 'abandoned'},
+                    sort: [['created_at' => Mongo::ASCENDING]]).each do |data|
+      items << self.from_mongo(data)
+    end
+    items
   end
 
   def self.find_all_by_supporter(supporter)
