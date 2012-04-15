@@ -1,3 +1,12 @@
+#loader {
+  background: image-url('loader.gif') center center no-repeat;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 17px;
+  right: 50px;
+  display: none;
+}
 .switcher {
   @include background-image(linear-gradient(#555 0%, #000 100%));
   @include pie-clearfix;
@@ -13,6 +22,10 @@
     text-align: center;
     width: 33%;
     border-right: solid 1px #000;
+
+    &.active {
+      @include background-image(linear-gradient(#000 0%, #555 100%)); 
+    }
   }
   
   a {
@@ -22,17 +35,12 @@
     text-align: center;
     white-space: nowrap;
     border-right: solid 1px #555;
-
-    &.active {
-      @include background-image(linear-gradient(#000 0%, #555 100%)); 
-    }
   }
 
-  .menu,
+  .menu-button,
   .meter {
-    width: 50px;
+    width: 40px;
     float: right;
-
     border-left: solid 1px #555;
     border-right: 0;
   }
@@ -67,5 +75,17 @@
   }
   .created-at {
     float: right;
+  }
+}
+
+
+
+.menu {
+  a {
+    display: block;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
   }
 }

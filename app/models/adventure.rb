@@ -106,6 +106,19 @@ class Adventure
     end
   end
 
+  def abandon(user)
+    data = {
+      message: 'I am abandoning this for now, to focus on more awesome projects.'
+    }
+
+    if self.author.id == user.id
+      AuthorPost.create(user, self, data)
+      self.class.collection.update({'_id' => self.id}, {"$set" => {'status' => 'abandoned'}})
+    else
+      fail 'Forbidden abandon'
+    end
+  end
+
 
   def self.from_mongo(hash)
     self.new.tap do |adv|
