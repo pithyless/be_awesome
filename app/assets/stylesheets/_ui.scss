@@ -45,6 +45,7 @@ width: auto;
 .switcher li.right a:first-child {
 border-left: none;
 }
+.switcher li:last-child,
 .switcher li.right a:last-child {
 border-right: none;
 }
