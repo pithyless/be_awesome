@@ -46,6 +46,8 @@ padding: 10px;
 .list ol {
 	clear: both;
 	font-size: 12px;
+	overflow: hidden;
+  width: 100%;
 }
 .list h2 {
 	color: #ffffff;
@@ -60,9 +62,10 @@ width: 50px;
 	border: none;
 	color: #dedede;
 	line-height: normal;
-	margin: 0 20px 0 0;
+	margin: 0;
+	float: left;
+	width: 50%;
 	padding: 0;
-	width: auto;
 }
 .show_post {
 	float: left;
@@ -105,10 +108,6 @@ background-color: #F8F8F8;
     border: 1px solid #C6C6C6;
 		border-radius: 4px;
 }
-#adventures-list-box .button {
-margin: 0 10px;
-}
-
 .supporters-info {
   text-align: center;
 }
