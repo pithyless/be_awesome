@@ -1,11 +1,11 @@
 %script#adventures-list-item-template{:type => "text/x-handlebars-template"}
   %li
-    %table
-      %tr
-        %td
-          %img{:src => '{{avatar_path}}'}
-        %td
-          %a{:href => '#adventures/{{id}}'}
+    %a{:href => '#adventures/{{id}}'}
+      %table
+        %tr
+          %td
+            %img{:src => '{{avatar_path}}'}
+          %td
             %h2.title {{title}}
             %ol
               %li.last-activity Last activity: {{last_activity_days}} ago
