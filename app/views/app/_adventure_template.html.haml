@@ -24,8 +24,11 @@
       %table
         %tr
           %td.vtop
+            {{#if current_user_can_post}}
             %img{:src => '{{current_user_avatar}}', :alt => 'your avatar'}
+            {{/if}}
           %td
+            {{#if current_user_can_post}}
             %form#add-new-post-form
               %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
               #add-new-post-form-error-msg.error You need to write something to stay as awesome as you are now
@@ -33,6 +36,16 @@
               %a.button.plus{:href => "#"} Post it!
             #add-new-post-form-success-msg.success
               = "You're one step closer. #{Silly.random_success.capitalize}!"
+            {{/if}}
+
+            {{#if current_user_can_abandon}}
+            %form#abandon-adventure-form
+              %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
+              %a.button.danger{:href => "#"} It's not worth it. Abandon!
+            #abandon-adventure-form-success-msg.success
+              = "Time not wasted is time well spent."
+            {{/if}}
+
             
             {{#if current_user_can_ping}}
             %form#ping-adventure-form
