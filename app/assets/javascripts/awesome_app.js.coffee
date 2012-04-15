@@ -4,10 +4,6 @@ $ ->
 class AwesomeApp
   constructor: ->
 
-    @router = new Awesomeness.Routers.AwesomeRouter()
-    @bindRouterEvents()
-    historyStatus = Backbone.history.start({pushState: false})
-
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
     @adventureView = new Awesomeness.Views.AdventureView()
@@ -17,6 +13,10 @@ class AwesomeApp
     @dashboardView = new Awesomeness.Views.DashboardView()
     @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
     @menuView = new Awesomeness.Views.MenuView()
+
+    @router = new Awesomeness.Routers.AwesomeRouter()
+    @bindRouterEvents()
+    historyStatus = Backbone.history.start({pushState: false})
 
     @checkDefaultRoute(historyStatus)
 
@@ -84,17 +84,6 @@ class AwesomeApp
     @supportersView.clear()
     @dashboardView.clear()
     @menuView.clear()
-
-  # initMenu: ->
-  #   $('#menu-button').on 'click', (e) ->
-  #     e.preventDefault()
-
-  #     el = $(e.target).attr('href')
-  #     destination = $(el).offset().top - 20
-  #     $("html:not(:animated), body:not(:animated)").animate
-  #       scrollTop:
-  #         destination
-  #       'normal'
 
   onGetSupporters: (id) ->
     @supporters = new Awesomeness.Models.Supporters({id: id})
