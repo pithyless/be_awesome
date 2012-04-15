@@ -87,29 +87,16 @@ h1 {
 	display: block;
 }
 .list_posts .post {
-	border: solid 1px #c4c7ce;
-  -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-  background-color: #ffffff;
+	border-radius: 6px;
   color: #333333;
   padding: 6px 10px;
+  background-color: #d7d7d7;
+      background-image: -moz-linear-gradient(center top , #f1f1f1, #d7d7d7);
+      border: 1px solid #C6C6C6;
 }
 .button div {
   overflow: hidden;
   padding: 10px 80px;
-}
-.list_posts .post {
-background: #eaf1f9; /* Old browsers */
-/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VhZjFmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiNWQ1ZmMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top,  #eaf1f9 0%, #b5d5fc 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaf1f9), color-stop(100%,#b5d5fc)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* IE10+ */
-background: linear-gradient(top,  #eaf1f9 0%,#b5d5fc 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf1f9', endColorstr='#b5d5fc',GradientType=0 ); /* IE6-8 */
 }
 .list_posts div.pinger 
 {
@@ -124,4 +111,8 @@ margin: 0 10px;
 
 .supporters-info {
   text-align: center;
+}
+.supporters-info a {
+	background: url(users.png) no-repeat left center transparent;
+  padding: 6px 0 6px 32px;
 }

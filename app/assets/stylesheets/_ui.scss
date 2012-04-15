@@ -48,21 +48,17 @@
 }
 
 .list_posts {
-
   .pinger {
     .post {
       background: #ff0;
     }
-
     small {
       display: none;
     }
   }
-
   .post p {
     clear: both;
   }
-
   .created-at {
     float: right;
   }
