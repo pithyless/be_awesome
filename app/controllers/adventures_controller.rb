@@ -137,7 +137,7 @@ class AdventuresController < ApplicationController
     current_user_can_post = false
     if (adv.status == 'active' &&
         (adv.author.id == current_user.id or
-         adv.active_supporter_ids.include?(current_user.id)))
+         adv.supporter_ids.include?(current_user.id)))
       current_user_can_post = true
     end
 
