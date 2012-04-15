@@ -9,7 +9,8 @@
     forms: {
       addNewPostUrl: "#{url_for(controller: 'adventures', action: 'create_post')}",
       addNewAdventureUrl: "#{url_for(controller: 'adventures', action: 'create')}",
-      pingAdventureUrl: "#{url_for(controller: 'adventures', action: 'ping')}"
+      pingAdventureUrl: "#{url_for(controller: 'adventures', action: 'ping')}",
+      abandonAdventureUrl: "#{url_for(controller: 'adventures', action: 'abandon')}"
     },
     isUserAuthorized: #{!!current_user}
   };
