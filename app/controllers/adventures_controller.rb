@@ -110,8 +110,9 @@ class AdventuresController < ApplicationController
     end
 
     if adv.active_pinger_ids.size > 0
+      success = Silly.random_success.capitalize
       msg = "#{pluralize(adv.active_pinger_ids.size, 'person is', 'people are')}"
-      msg << " waiting for progress."
+      msg << " waiting for progress. #{success}!"
       posts << {
         type: 'pinger',
         created_at: Time.now,
