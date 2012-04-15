@@ -64,14 +64,22 @@
 
   li {
     float: left;
-    margin-right: 20px;
+    margin: 5px;
+    
+    img {
+      float: left;
+    }
   }
 }
 
 .list_posts {
   .pinger {
     .post {
-      background: #ff0;
+      background-color: #893F2A;
+      background-image: -moz-linear-gradient(center top , #D85C3F, #C9341D);
+      border: 1px solid #893F2A;
+      border-radius: 6px;
+      color: #ffffff;
     }
     small {
       display: none;
@@ -100,7 +108,7 @@
 
 
 
-.list_posts li {
+.list.list_posts li {
   border-bottom: none;
 }
 
@@ -115,10 +123,11 @@
 
 .list_posts div.pinger 
 {
-background-color: #F8F8F8;
-    background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
-    border: 1px solid #C6C6C6;
-    border-radius: 4px;
+    background-color: #893F2A;
+    background-image: -moz-linear-gradient(center top , #D85C3F, #C9341D);
+    border: 1px solid #893F2A;
+    border-radius: 6px;
+    color: #ffffff;
 }
 
 
@@ -176,8 +185,8 @@ background-color: #F8F8F8;
   
   .abandoned {
     opacity: 0.2;
-
-    .last-activity { display: none; }
+    
+    .last-activity,
     .active-pingers { display: none; }
   }
 
