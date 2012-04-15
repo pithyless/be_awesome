@@ -13,6 +13,7 @@ class AwesomeApp
     @dashboardView = new Awesomeness.Views.DashboardView()
     @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
     @menuView = new Awesomeness.Views.MenuView()
+    @meterView = new Awesomeness.Views.MeterView()
 
     @router = new Awesomeness.Routers.AwesomeRouter()
     @bindRouterEvents()
@@ -36,6 +37,7 @@ class AwesomeApp
     @router.bind('getSupporters', @onGetSupporters, @)
     @router.bind('getDashboard', @onGetDashboard, @)
     @router.bind('getMenu', @onGetMenu, @)
+    @router.bind('getMeter', @onGetMeter, @)
 
   onNewAdventure: ->
     @clearAllViews()
@@ -84,6 +86,7 @@ class AwesomeApp
     @supportersView.clear()
     @dashboardView.clear()
     @menuView.clear()
+    @meterView.clear()
 
   onGetSupporters: (id) ->
     @supporters = new Awesomeness.Models.Supporters({id: id})
@@ -106,3 +109,7 @@ class AwesomeApp
   onGetMenu: ->
     @clearAllViews()
     @menuView.render()
+
+  onGetMeter: ->
+    @clearAllViews()
+    @meterView.render()
