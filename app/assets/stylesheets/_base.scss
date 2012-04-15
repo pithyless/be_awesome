@@ -55,8 +55,15 @@ padding: 10px;
 .list table {
  width: 100%;
 }
+.list li:last-child {
+  border-bottom: none;
+}
 .list td:first-child {
+padding-left: 0;
 width: 50px;
+}
+.list td:last-child {
+padding-right: 0;
 }
 .list ol li {
 	border: none;
