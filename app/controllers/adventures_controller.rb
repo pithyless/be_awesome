@@ -72,12 +72,14 @@ class AdventuresController < ApplicationController
 
   def supportings
     adventures = Adventure.find_all_by_supporter(current_user).map do |adv|
+      msg = adv.active_pinger_ids.empty? ? '' : "#{pluralize(adv.active_pinger_ids.size, 'person', 'people')} waiting"
       {
         id: adv.id.to_s,
         title: adv.title,
         status: adv.status,
         avatar_path: adv.author.avatar,
         active_pingers_count: adv.active_pinger_ids.size,
+        active_pingers_message: msg,
         last_activity_days: time_ago_in_words(adv.last_activity)
        }
     end
@@ -87,12 +89,15 @@ class AdventuresController < ApplicationController
 
   def index
     adventures = Adventure.find_all_by_author(current_user).map do |adv|
+      adv.active_pinger_ids = [nil, nil]
+      msg = adv.active_pinger_ids.empty? ? '' : "#{pluralize(adv.active_pinger_ids.size, 'supporter', 'supporters')} are worried"
       {
         id: adv.id.to_s,
         title: adv.title,
         status: adv.status,
         avatar_path: adv.author.avatar,
         active_pingers_count: adv.active_pinger_ids.size,
+        active_pingers_message: msg,
         last_activity_days: time_ago_in_words(adv.last_activity)
        }
     end
