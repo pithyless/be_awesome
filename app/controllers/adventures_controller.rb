@@ -128,7 +128,8 @@ class AdventuresController < ApplicationController
     end
 
     current_user_can_ping = false
-    if adv.supporter_ids.include?(current_user.id) and
+    if adv.status == 'active' and
+      adv.supporter_ids.include?(current_user.id) and
       !adv.active_pinger_ids.include?(current_user.id)
       current_user_can_ping = true
     end
@@ -136,7 +137,7 @@ class AdventuresController < ApplicationController
     current_user_can_post = false
     if (adv.status == 'active' &&
         (adv.author.id == current_user.id or
-         adv.active_pinger_ids.include?(current_user.id)))
+         adv.active_supporter_ids.include?(current_user.id)))
       current_user_can_post = true
     end
 
