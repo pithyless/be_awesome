@@ -10,14 +10,14 @@
       %table
         %tr
           %td
+            {{#if author.avatar_path}}
             %img{:src => '{{author.avatar_path}}', :alt => 'author avatar'}
+            {{/if}}
           %td
             .post
               %small
                 %strong.list-user {{author.name}}
-                on
                 %span.created-at {{created_at}}
-                said:
               %p {{body}}
     {{/each}}
     %li
@@ -32,7 +32,16 @@
               %textarea{:name => 'message', :placeholder => "Your awesome reply ...", :rows => "6"}
               %a.button.plus{:href => "#"} +
               %a.button.ping{:href => "/adventures/{{adventure_id}}/ping"} Ping it!
-
             #add-new-post-form-success-msg.success
               So far so good
+            
+            {{#if current_user_can_ping}}
+            %form#ping-adventure-form
+              %input{:type => 'hidden', :name => 'adventure_id', :value => '{{adventure_id}}'}
+              %a.button{:href => "#"} Ping it!
+            #ping-adventure-form-success-msg.success
+              You did it!
+            {{/if}}
+
+            
 

@@ -5,9 +5,16 @@ header {
   line-height: 50px;
   font-weight: bold;
   text-align: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 #content {
+  padding: 50px 10px 0;
   overflow: hidden;
 }
 

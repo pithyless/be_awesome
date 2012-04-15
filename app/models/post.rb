@@ -34,6 +34,8 @@ class Post
       AuthorPost.new(hash)
     when 'supporter'
       SupporterPost.new(hash)
+    when 'pinger'
+      PingerPost.new(hash)
     end
   end
 
