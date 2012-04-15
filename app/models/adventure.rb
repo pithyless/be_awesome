@@ -47,13 +47,13 @@ class Adventure
   end
 
   def active_pingers
-    @active_pingers ||= active_pinger_ids.map do |pinger_id|
+    active_pinger_ids.map do |pinger_id|
       User.find(pinger_id)
     end
   end
 
   def supporters
-    @supporters ||= supporter_ids.map do |supporter_id|
+    supporter_ids.map do |supporter_id|
       User.find(supporter_id)
     end
   end

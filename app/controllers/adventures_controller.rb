@@ -89,7 +89,6 @@ class AdventuresController < ApplicationController
 
   def index
     adventures = Adventure.find_all_by_author(current_user).map do |adv|
-      adv.active_pinger_ids = [nil, nil]
       msg = adv.active_pinger_ids.empty? ? '' : "#{pluralize(adv.active_pinger_ids.size, 'waiting supporter', 'waiting supporters')}"
       {
         id: adv.id.to_s,
