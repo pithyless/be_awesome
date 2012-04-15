@@ -22,14 +22,12 @@ class AwesomeApp
 
   checkDefaultRoute: (historyStatus) ->
     
-    @router.navigate("", {trigger: true}) unless historyStatus
-
-    # if awesomeConfig.isUserAuthorized
-    #   $('#header').show()
-    #   @router.navigate("adventures", {trigger: true}) unless historyStatus
-    # else
-    #   $('#header').hide()
-    #   @router.navigate("", {trigger: true})
+    if awesomeConfig.isUserAuthorized
+      $('#header').show()
+      @router.navigate("adventures", {trigger: true}) unless historyStatus
+    else
+      $('#header').hide()
+      @router.navigate("", {trigger: true})
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
