@@ -8,8 +8,6 @@ class AwesomeApp
     @bindRouterEvents()
     historyStatus = Backbone.history.start({pushState: false})
 
-    @checkDefaultRoute(historyStatus)
-    
     # init views
     @adventuresListView = new Awesomeness.Views.AdventuresListView()
     @adventureView = new Awesomeness.Views.AdventureView()
@@ -19,9 +17,16 @@ class AwesomeApp
     @dashboardView = new Awesomeness.Views.DashboardView()
     @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
 
+    @checkDefaultRoute(historyStatus)
+
   checkDefaultRoute: (historyStatus) ->
-    unless historyStatus
-      window.location.hash = ''
+    
+    if awesomeConfig.isUserAuthorized
+      $('#header').show()
+      @router.navigate("adventures", {trigger: true}) unless historyStatus
+    else
+      $('#header').hide()
+      @router.navigate("", {trigger: true})
 
   bindRouterEvents: ->
     @router.bind('newAdventure', @onNewAdventure, @)
