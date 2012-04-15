@@ -29,7 +29,13 @@ class AdventuresController < ApplicationController
     }
 
     render :json => data.to_json
-   end
+  end
+
+  def abandon
+    adv = Adventure.find(params.fetch(:adventure_id)) # TODO: authorize gently
+    adv.abandon(current_user)
+    render :json => { status: 'OK', adventure_id: adv.id.to_s }
+  end
 
   def create
     data = {
@@ -127,11 +133,20 @@ class AdventuresController < ApplicationController
       current_user_can_ping = true
     end
 
+    current_user_can_post = false
+    if (adv.status == 'active' &&
+        (adv.author.id == current_user.id or
+         adv.active_pinger_ids.include?(current_user.id)))
+      current_user_can_post = true
+    end
+
     adventure = {
       title: adv.title,
       status: adv.status,
       current_user_avatar: current_user.avatar,
       current_user_can_ping: current_user_can_ping,
+      current_user_can_post: current_user_can_post,
+      current_user_can_abandon: adv.author.id == current_user.id && adv.status == 'active',
       adventure_id: adv.id.to_s,
       active_pingers_count: adv.active_pingers.size,
       active_pingers: adv.active_pingers.map do |p|

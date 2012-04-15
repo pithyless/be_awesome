@@ -9,6 +9,7 @@ BeAwesome::Application.routes.draw do
   post '/adventures/new_post' => 'adventures#create_post'
   post '/adventures' => 'adventures#create'
   post '/adventures/ping' => 'adventures#ping'
+  post '/adventures/abandon' => 'adventures#abandon'
 
   get '/adventures/add_supporters_callback/:adventure_id' => 'adventures#add_supporters_callback'
 
