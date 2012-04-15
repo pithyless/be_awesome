@@ -1,13 +1,12 @@
 %script#supporters-template{:type => "text/x-handlebars-template"}
   %h1 {{title}}
-  .supporters-info supporters
+  .supporters-info is supported by:
 
   %ul.supporters-list
     {{#each supporters}}
     %li
       %img{:src => '{{avatar_path}}', :alt => 'supporter img'}
-      .name {{name}}
     {{/each}}
 
-  %a.button{:href => '{{invite_supporters_url}}'} add new supporters
+  %a.button{:href => '{{invite_supporters_url}}'} Add new supporters
   
