@@ -22,10 +22,11 @@ class PingerPost < Post
   end
 
   def self.create(pingers, adventure)
+    success = Silly.random_success.capitalize
     msg = if pingers.size > 1
-            "#{pingers.size} were rewarded for their patience."
+            "#{pingers.size} people were rewarded for their patience. #{success}!"
           else
-            '1 person was rewarded for patience.'
+            "1 person was rewarded for patience. #{success}!"
           end
 
     id = self.collection.insert({
