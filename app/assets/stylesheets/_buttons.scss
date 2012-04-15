@@ -27,7 +27,9 @@
   margin: 8px 10px 0;
 }
 .button.danger {
-  background: red;
+  background-color: #893f2a;
+  background-image: -moz-linear-gradient(center top , #d85c3f, #c9341d);
+  border: 1px solid #893f2a;
 }
 
 #menu-button {

@@ -39,12 +39,12 @@
 
   .menu-button,
   .meter {
-    width: 40px;
+    width: 50px;
     float: right;
     border-left: solid 1px #555;
     border-right: 0;
   }
-  .menu a {
+  .menu-button a {
     background: image-url('menu.png') center center no-repeat;
   }
   .meter a {
