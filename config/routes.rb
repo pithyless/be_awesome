@@ -14,8 +14,10 @@ BeAwesome::Application.routes.draw do
   get '/adventures/add_supporters_callback/:adventure_id' => 'adventures#add_supporters_callback'
 
   get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/logout' => 'sessions#destroy'
 
   get '/supportings' => 'adventures#supportings'
+
 
 
   # The priority is based upon order of creation:

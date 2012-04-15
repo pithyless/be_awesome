@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_sign_in
 
   helper_method :current_user
+  helper_method :facebook_logout_url
 
   private
 
@@ -21,6 +22,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def facebook_logout_url
+    api_key = ENV['FACEBOOK_KEY']
+    session_key = current_user.facebook_access_token
+    "http://www.facebook.com/logout.php?api_key=#{api_key}&session_key=#{session_key}&confirm=1&next=http://be-awesome.herokuapp.com/auth/logout"
   end
 
 end
