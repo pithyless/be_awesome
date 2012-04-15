@@ -28,19 +28,19 @@
     }
   }
 
-  .menu {
+  .menu,
+  .meter {
     width: 50px;
     float: right;
 
     border-left: solid 1px #555;
     border-right: 0;
-
-    a {
-      background: image-url('menu.png') center center no-repeat;
-
-      border-left: solid 1px #000;
-      border-right: 0;
-    }
+  }
+  .menu a {
+    background: image-url('menu.png') center center no-repeat;
+  }
+  .meter a {
+    background: image-url('meter-icon.png') center center no-repeat;
   }
 }
 
