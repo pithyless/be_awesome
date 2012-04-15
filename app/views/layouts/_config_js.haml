@@ -11,5 +11,5 @@
       addNewAdventureUrl: "#{url_for(controller: 'adventures', action: 'create')}",
       pingAdventureUrl: "#{url_for(controller: 'adventures', action: 'ping')}"
     },
-    isUserAuthorized: ""
+    isUserAuthorized: #{!!current_user}
   };
