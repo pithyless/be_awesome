@@ -6,6 +6,7 @@ class Awesomeness.Routers.AwesomeRouter extends Backbone.Router
     "adventures/:id": "getAdventure"
     "adventures/:id/supporters": "getSupporters"
     "dashboard": "getDashboard"
+    "menu": "getMenu"
 
   newAdventure: ->
     @trigger('newAdventure')
@@ -21,4 +22,7 @@ class Awesomeness.Routers.AwesomeRouter extends Backbone.Router
 
   getDashboard: ->
     @trigger('getDashboard')
+
+  getMenu: ->
+    @trigger('getMenu')
   

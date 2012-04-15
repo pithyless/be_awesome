@@ -16,6 +16,7 @@ class AwesomeApp
     @supportersView = new Awesomeness.Views.SupportersView()
     @dashboardView = new Awesomeness.Views.DashboardView()
     @modeSwitcherView = new Awesomeness.Views.ModeSwitcherView()
+    @menuView = new Awesomeness.Views.MenuView()
 
     @checkDefaultRoute(historyStatus)
 
@@ -34,6 +35,7 @@ class AwesomeApp
     @router.bind('getAdventure', @onGetAdventure, @)
     @router.bind('getSupporters', @onGetSupporters, @)
     @router.bind('getDashboard', @onGetDashboard, @)
+    @router.bind('getMenu', @onGetMenu, @)
 
   onNewAdventure: ->
     @clearAllViews()
@@ -78,6 +80,7 @@ class AwesomeApp
     @homePageView.clear()
     @supportersView.clear()
     @dashboardView.clear()
+    @menuView.clear()
 
   # initMenu: ->
   #   $('#menu-button').on 'click', (e) ->
@@ -107,3 +110,7 @@ class AwesomeApp
     @clearAllViews()
     supportingsToRender = @supportingsCollection.toRender()
     @dashboardView.render(supportingsToRender)
+
+  onGetMenu: ->
+    @clearAllViews()
+    @menuView.render()
