@@ -25,9 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
   def facebook_logout_url
-    api_key = ENV['FACEBOOK_KEY']
-    session_key = current_user.facebook_access_token
-    "http://www.facebook.com/logout.php?api_key=#{api_key}&session_key=#{session_key}&confirm=1&next=http://be-awesome.herokuapp.com/auth/logout"
+    if current_user
+      api_key = ENV['FACEBOOK_KEY']
+      session_key = current_user.facebook_access_token
+      "http://www.facebook.com/logout.php?api_key=#{api_key}&session_key=#{session_key}&confirm=1&next=http://be-awesome.herokuapp.com/auth/logout"
+    end
   end
 
 end
