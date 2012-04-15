@@ -127,5 +127,7 @@ background-color: #F8F8F8;
 .list {
   .abandoned {
     opacity: 0.2;
+    .last-activity { display: none; }
+    .active-pingers { display: none; }
   }
 }
