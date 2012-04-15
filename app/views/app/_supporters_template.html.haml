@@ -5,7 +5,7 @@
   %ul.supporters-list
     {{#each supporters}}
     %li
-      %img{:src => '{{avatar_path}}', :alt => 'supporter img'}
+      %img.avatar{:src => '{{avatar_path}}', :alt => 'supporter img'}
     {{/each}}
 
   %a.button{:href => '{{invite_supporters_url}}'} Add new supporters

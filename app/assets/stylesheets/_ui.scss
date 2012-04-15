@@ -7,6 +7,7 @@
   right: 50px;
   display: none;
 }
+
 .switcher {
   @include background-image(linear-gradient(#555 0%, #000 100%));
   @include pie-clearfix;
@@ -36,31 +37,27 @@
     white-space: nowrap;
     border-right: solid 1px #555;
   }
+
+  li.right {
+    float: right;
+    width: auto;
+  }
+
+  .menu-button,
+  .meter {
+    width: 50px;
+  }
+  .menu-button {
+    background: image-url('menu.png') center center no-repeat;
+    border-right: 0;
+  }
+  .meter {
+    background: image-url('meter-icon.png') center center no-repeat;
+  }
 }
 
-.switcher li.right {
-float: right;
-width: auto;
-}
-.switcher li.right a:first-child {
-border-left: none;
-}
-.switcher li:last-child,
-.switcher li.right a:last-child {
-border-right: none;
-}
-.menu-button,
-.meter {
-  width: 50px;
-  float: left;
-  border-left: 1px solid #000000;
-}
-.menu-button {
-  background: image-url('menu.png') center center no-repeat;
-}
-.meter {
-  background: image-url('meter-icon.png') center center no-repeat;
-}
+
+
 
 .supporters-list {
   @include pie-clearfix;
@@ -179,7 +176,7 @@ background-color: #F8F8F8;
   
   .abandoned {
     opacity: 0.2;
-    
+
     .last-activity { display: none; }
     .active-pingers { display: none; }
   }
