@@ -9,6 +9,11 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_url
+  end
+
   def friends
     render :json => current_user.facebook_friends.to_json
   end
