@@ -4,24 +4,25 @@
   line-height: 50px;
   height: 50px;
   display: inline-block;
-  width: 70%;
+  width: 100%;
 
   li {
     float: left;
     font-weight: bold;
     text-align: center;
-    width: 49%;
+    width: 33%;
     border-right: solid 1px #555555;
     border-left: solid 1px #000000;
   }
   
   li:first-child {
+    border-left: none;
     border-right: solid 1px #555555;
   }
   
   li:last-child {
     border-left: solid 1px #000000;
-    width: 49%;
+    border-right: none;
   }
 
   a {
