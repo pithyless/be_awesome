@@ -3,7 +3,7 @@ body {
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
-  color: #fff;
+  color: $color-text;
   position: relative;
 }
 
@@ -19,113 +19,24 @@ h2 { font-size: 1.4em; }
 h3 { font-size: 1.3em; }
 h4 { font-size: 1.1em; }
 
+h1 {
+  padding: 10px;
+  text-align: center;
+}
+
 /* links */
 a { color: #ffffff; text-decoration: none; }
 a:visited { color: #ffffff; }
 a:hover { color: #ffffff; }
 a:focus, a:hover, a:active { outline: 0; }
 
-
-
-
-
-
-
-.list li {
-	border-bottom: solid 1px #ffffff;
-}
-.list table td {
-padding: 10px;
-}
-.list_action {
-	float: left;
-	height: 40px;
-	width: 40px;
-	background-color: #ffffff;
-}
-.list ol {
-	clear: both;
-	font-size: 12px;
-	overflow: hidden;
+table {
   width: 100%;
 }
-.list h2 {
-	color: #ffffff;
-}
-.list table {
- width: 100%;
-}
-.list li:last-child {
-  border-bottom: none;
-}
-.list td:first-child {
-padding-left: 0;
-width: 50px;
-}
-.list td:last-child {
-padding-right: 0;
-}
-.list ol li {
-	border: none;
-	color: #dedede;
-	line-height: normal;
-	margin: 0;
-	float: left;
-	width: 50%;
-	padding: 0;
-}
-.show_post {
-	float: left;
-	width: 100%;
-}
-.list small {
-  font-size: 12px;
-	color: #666666;
-}
-.list small strong {
-font-weight: bold;
-}
-h1 {
-	padding: 10px;
-	color: #ffffff;
-	text-align: center;
-}
-.list_posts li {
-  border-bottom: none;
-}
-.list a {
-	display: block;
-}
-.list_posts .post {
-	border-radius: 6px;
-  color: #333333;
-  padding: 6px 10px;
-  background-color: #d7d7d7;
-      background-image: -moz-linear-gradient(center top , #f1f1f1, #d7d7d7);
-      border: 1px solid #C6C6C6;
-}
-.button div {
-  overflow: hidden;
-  padding: 10px 80px;
-}
-.list_posts div.pinger 
-{
-background-color: #F8F8F8;
-    background-image: -moz-linear-gradient(center top , #F8F8F8, #ECECEC);
-    border: 1px solid #C6C6C6;
-		border-radius: 4px;
-}
-.supporters-info {
-  text-align: center;
-}
-.supporters-info a {
-	background: url(users.png) no-repeat left center transparent;
-  padding: 6px 0 6px 32px;
-  text-decoration: underline;
-}
 
-.list {
-  .abandoned {
-    opacity: 0.2;
-  }
-}
+
+
+
+
+
+
